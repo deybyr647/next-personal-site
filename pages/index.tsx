@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { Container, Row, Col, Image, Jumbotron } from 'react-bootstrap';
 import styles from '../styles/Landing.module.css'
 
@@ -17,18 +19,18 @@ const LandingContent = () => {
                     <Container fluid>
                         <Row className={"d-flex flex-column"}>
                             <Col>
-                                <Jumbotron className={"d-flex flex-column align-items-center h-100 bg-transparent"}>
+                                <Jumbotron className={`d-flex flex-column align-items-center mt-4`}>
                                     <Image src={"/images/IMG_0013.jpg"} className={"w-50"} roundedCircle/>
                                     <Container className={"text-center mt-4"}>
                                         <h1>Deyby Rodriguez</h1>
-                                        <h5>Web Developer</h5>
+                                        <h5 className={"font-italic"}>Web Developer</h5>
                                     </Container>
 
                                     <p className={"mt-2 px-3 text-center"}>
                                         Welcome to my website! <br/>
-                                        Feel free to take a look around to
-                                        learn more about myself, what I'm into, and
-                                        what I do!
+                                        Feel free to look around my site & at my projects! <br/>
+                                        If you're looking to collaborate on a project with me,
+                                        feel free to get in touch with me!
                                     </p>
                                 </Jumbotron>
                             </Col>
@@ -37,19 +39,53 @@ const LandingContent = () => {
                                 <Row>
                                     <Col>
                                         <Jumbotron>
-                                            <h1>Hello World</h1>
+                                            <h3>Projects</h3>
+                                            <p>Jump to the list of projects I've worked on</p>
+
+                                            <Link href={"/portfolio"}>
+                                                <a
+                                                    className={`btn ${styles.linkButton}`}
+                                                >
+                                                    Learn More
+                                                </a>
+                                            </Link>
                                         </Jumbotron>
                                     </Col>
 
                                     <Col>
                                         <Jumbotron>
-                                            <h1>Hello World</h1>
+                                            <h3>About Me</h3>
+                                            <p>Learn about who I am & what I'm into</p>
+
+                                            <Link href={"/about"}>
+                                                <a
+                                                    className={`btn ${styles.linkButton}`}
+                                                >
+                                                    Learn More
+                                                </a>
+                                            </Link>
+                                        </Jumbotron>
+                                    </Col>
+
+                                    <Col>
+                                        <Jumbotron>
+                                            <h3>Contact</h3>
+                                            <p>Learn about ways to get in touch with me</p>
+
+                                            <Link href={"/contact"}>
+                                                <a
+                                                    className={`btn ${styles.linkButton}`}
+                                                >
+                                                    Learn More
+                                                </a>
+                                            </Link>
                                         </Jumbotron>
                                     </Col>
                                 </Row>
                             </Col>
                         </Row>
                     </Container>
+                    <Footer/>
                 </Col>
             </Row>
         </Container>
@@ -61,7 +97,6 @@ const LandingPage = () => {
         <>
             <Metadata title={"Deyby Rodriguez"}/>
             <LandingContent/>
-            <Footer/>
         </>
     )
 }
