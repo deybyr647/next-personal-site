@@ -15,7 +15,7 @@ const LandingContent = () => {
                     <Navigation/>
                 </Col>
 
-                <Col className={"p-0"}>
+                <Col xs={10} sm={11} className={"p-0"}>
                     <Container fluid>
                         <Row className={"d-flex flex-column"}>
                             <Col>
@@ -42,7 +42,7 @@ const LandingContent = () => {
                                             <h3>Projects</h3>
                                             <p>Jump to the list of projects I've worked on</p>
 
-                                            <Link href={"/portfolio"}>
+                                            <Link href={"/projects"}>
                                                 <a
                                                     className={`btn ${styles.linkButton}`}
                                                 >
@@ -85,6 +85,7 @@ const LandingContent = () => {
                             </Col>
                         </Row>
                     </Container>
+
                     <Footer/>
                 </Col>
             </Row>

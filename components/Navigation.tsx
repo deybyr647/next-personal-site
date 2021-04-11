@@ -6,7 +6,7 @@ import { BsPerson, BsFileEarmarkText, BsGrid, BsEnvelope } from 'react-icons/bs'
 
 const Navigation = () => {
     return (
-        <Navbar expand={"md"} variant={"dark"} className={`h-100 d-flex flex-column align-items-center ${styles.navigation}`}>
+        <Navbar variant={"dark"} className={`h-100 d-flex align-items-start justify-content-center ${styles.navigation}`}>
             <Nav className={"d-flex text-center flex-column sticky-top"}>
                 <Navbar.Brand className={"mx-0 p-0 my-3"}>
                     <Link href={"/"}>
@@ -24,15 +24,15 @@ const Navigation = () => {
                     </a>
                 </Link>
 
-                <Link href={"/resume"}>
-                    <a className={"nav-link"}>
+                <Link href={"/Resume.pdf"}>
+                    <a className={"nav-link"} rel={"noopener noreferrer"} target={"_blank"}>
                         <BsFileEarmarkText size={"1.2em"}/>
                         <br/>
                         <span className={"d-none d-lg-inline"}>Resume</span>
                     </a>
                 </Link>
 
-                <Link href={"/portfolio"}>
+                <Link href={"/projects"}>
                     <a className={"nav-link"}>
                         <BsGrid size={"1.2em"}/>
                         <br/>
