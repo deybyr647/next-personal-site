@@ -17,7 +17,7 @@ const Navigation = () => {
                 </Navbar.Brand>
 
                 <Link href={"/about"}>
-                    <a className={"nav-link"}>
+                    <a className={"nav-link my-3"}>
                         <BsPerson size={"1.2em"}/>
                         <br/>
                         <span className={"d-none d-lg-inline"}>About</span>
@@ -25,7 +25,7 @@ const Navigation = () => {
                 </Link>
 
                 <Link href={"/Resume.pdf"}>
-                    <a className={"nav-link"} rel={"noopener noreferrer"} target={"_blank"}>
+                    <a className={"nav-link my-3"} rel={"noopener noreferrer"} target={"_blank"}>
                         <BsFileEarmarkText size={"1.2em"}/>
                         <br/>
                         <span className={"d-none d-lg-inline"}>Resume</span>
@@ -33,7 +33,7 @@ const Navigation = () => {
                 </Link>
 
                 <Link href={"/projects"}>
-                    <a className={"nav-link"}>
+                    <a className={"nav-link my-3"}>
                         <BsGrid size={"1.2em"}/>
                         <br/>
                         <span className={"d-none d-lg-inline"}>Portfolio</span>
@@ -41,7 +41,7 @@ const Navigation = () => {
                 </Link>
 
                 <Link href={"/contact"}>
-                    <a className={"nav-link"}>
+                    <a className={"nav-link my-3"}>
                         <BsEnvelope size={"1.2em"}/>
                         <br/>
                         <span className={"d-none d-lg-inline"}>Contact</span>
