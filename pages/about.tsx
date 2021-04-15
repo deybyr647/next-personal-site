@@ -20,7 +20,7 @@ const AboutContent = () => {
                             <Col>
                                 <Row className={"d-flex flex-column align-items-center"}>
                                     <Col>
-                                        <Jumbotron>
+                                        <Jumbotron className={"text-center"}>
                                             <h1>Hobbies</h1>
                                         </Jumbotron>
                                     </Col>
@@ -30,7 +30,6 @@ const AboutContent = () => {
                                             title={"Investing"}
                                             imgSrc={"https://g.foolcdn.com/editorial/images/620816/stock-up-glowing-green-arrow-climbs-on-a-stock-screen.jpg"}
                                             imgDesc={"Stock Graph"}
-                                            eKey={"0"}
                                         >
                                             lore ipsum dolor etc bom bom
                                         </CollapsibleCard>
@@ -39,7 +38,6 @@ const AboutContent = () => {
                                             title={"Learning & Teaching"}
                                             imgSrc={"https://edsurge.imgix.net/uploads/post/image/13456/rocket_launching_from_book-1591395298.jpg?auto=compress%2Cformat&w=1024&h=512&fit=crop"}
                                             imgDesc={"Learning Art"}
-                                            eKey={"0"}
                                         >
                                             lore ipsum dolor etc bom bom
                                         </CollapsibleCard>
@@ -48,7 +46,6 @@ const AboutContent = () => {
                                             title={"Reading"}
                                             imgSrc={"https://dcmep4q5dgnih.cloudfront.net/wp-content/uploads/2019/08/26141320/Reflecting-through-stages-of-Reading-1024x683.jpg"}
                                             imgDesc={"Reading Book"}
-                                            eKey={"0"}
                                         >
                                             lorem ipsum dolor bom bom
                                         </CollapsibleCard>
@@ -57,7 +54,6 @@ const AboutContent = () => {
                                             title={"Programming"}
                                             imgSrc={"https://content.techgig.com/thumb/msid-79844104,width-860,resizemode-4/5-Best-programming-languages-to-learn-in-2021.jpg?140622"}
                                             imgDesc={"Programming"}
-                                            eKey={"0"}
                                         >
                                             lorem ipsum dolor bom bom
                                         </CollapsibleCard>
@@ -69,7 +65,7 @@ const AboutContent = () => {
                                 <Jumbotron className={`d-flex flex-column align-items-center`}>
                                     <Image src={"/images/IMG_0013.jpg"} className={"w-100"} roundedCircle/>
                                     <Container className={"text-center mt-4"}>
-                                        <h1>Deyby Rodriguez</h1>
+                                        <h2>Deyby Rodriguez</h2>
                                         <h5 className={"font-italic"}>Who I Am</h5>
                                     </Container>
 
@@ -83,9 +79,47 @@ const AboutContent = () => {
                             </Col>
 
                             <Col>
-                                <Jumbotron>
-                                    <h1>Skills</h1>
-                                </Jumbotron>
+                                <Row className={"d-flex flex-column align-items-center"}>
+                                    <Col>
+                                        <Jumbotron className={"text-center"}>
+                                            <h1>Skills</h1>
+                                        </Jumbotron>
+                                    </Col>
+
+                                    <Col>
+                                        <CollapsibleCard
+                                            title={"TypeScript"}
+                                            imgSrc={"https://miro.medium.com/max/3840/1*3bHNjGdX_kTIhZM13Nuabg.png"}
+                                            imgDesc={"TypeScript"}
+                                        >
+                                            lorem ipsum dolor etc bom bom
+                                        </CollapsibleCard>
+
+                                        <CollapsibleCard
+                                            title={"NodeJS"}
+                                            imgSrc={"https://buddy.works/guides/covers/test-nodejs-app/share-nodejs-logo.png"}
+                                            imgDesc={"NodeJS"}
+                                        >
+                                            lorem ipsum dolor etc bom bom
+                                        </CollapsibleCard>
+
+                                        <CollapsibleCard
+                                            title={"NextJS"}
+                                            imgSrc={"https://miro.medium.com/max/2880/1*2tmzU7bve-VlTkOMWsk_Hw.jpeg"}
+                                            imgDesc={"NextJS"}
+                                        >
+                                            lorem ipsum dolor etc bom bom
+                                        </CollapsibleCard>
+
+                                        <CollapsibleCard
+                                            title={"Bootstrap"}
+                                            imgSrc={"https://miro.medium.com/max/1400/1*MD4sw9im4sftZA5u6mfFSg.png"}
+                                            imgDesc={"Bootstrap"}
+                                        >
+                                            lorem ipsum dolor etc bom bom
+                                        </CollapsibleCard>
+                                    </Col>
+                                </Row>
                             </Col>
                         </Row>
                     </Container>

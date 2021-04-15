@@ -22,7 +22,7 @@ const LandingContent = () => {
                                 <Jumbotron className={`d-flex flex-column align-items-center mt-4`}>
                                     <Image src={"/images/IMG_0013.jpg"} className={"w-75"} roundedCircle/>
                                     <Container className={"text-center mt-4"}>
-                                        <h1>Deyby Rodriguez</h1>
+                                        <h2>Deyby Rodriguez</h2>
                                         <h5 className={"font-italic"}>Web Developer</h5>
                                     </Container>
 
