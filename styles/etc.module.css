@@ -2,6 +2,10 @@
     background-color: #1B4965;
 }
 
+.cardToggle:hover {
+    cursor: pointer;
+}
+
 @media(prefers-reduced-motion: no-preference) {
     .logo:hover {
         animation: logo-spin infinite 5s linear;

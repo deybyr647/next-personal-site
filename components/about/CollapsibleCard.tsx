@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Card, Accordion } from 'react-bootstrap';
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 
+import styles from '../../styles/etc.module.css';
+
 interface CollapsibleCardProps {
     children: React.ReactNode
     title: string
@@ -33,9 +35,9 @@ const CollapsibleCard = ({children, title, imgSrc, imgDesc}: CollapsibleCardProp
                         {title}
 
                         {isExpanded ?
-                            <BsChevronUp/>
+                            <BsChevronUp className={styles.cardToggle}/>
                             :
-                            <BsChevronDown/>
+                            <BsChevronDown className={styles.cardToggle}/>
                         }
                     </Accordion.Toggle>
 
