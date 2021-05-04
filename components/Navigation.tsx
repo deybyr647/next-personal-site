@@ -36,7 +36,7 @@ const Navigation = () => {
                     <a className={"nav-link my-3"}>
                         <BsGrid size={"1.2em"}/>
                         <br/>
-                        <span className={"d-none d-lg-inline"}>Portfolio</span>
+                        <span className={"d-none d-lg-inline"}>Projects</span>
                     </a>
                 </Link>
 

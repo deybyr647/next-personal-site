@@ -82,24 +82,28 @@ const AboutContent = () => {
                                             imgSrc={"https://mikevantassell.com/wp-content/uploads/2019/03/google-code-next-nyc-interior-architecture-0020.jpg"}
                                             imgDesc={"Code Next Lab NYC"}
                                         >
-
-                                        </CollapsibleCard>
-
-                                        {/*<CollapsibleCard
-                                            title={}
-                                            imgSrc={}
-                                            imgDesc={}
-                                        >
-
+                                            Code Next is a program by Google that is designed to have high school
+                                            students break into the field of computer science.
+                                            I joined in the Fall of 2019, and can say this has been my most
+                                            meaningful and influential experience. Joining has helped me grow as a person,
+                                            and has helped me acquire valuable industry connections and knowledge.
+                                            Participating in Code Next has even connected me to other great opportunities,
+                                            like All Star Code. I only wish I had known of the program's existence sooner, as 2021 will be my last
+                                            year within the program.
                                         </CollapsibleCard>
 
                                         <CollapsibleCard
-                                            title={}
-                                            imgSrc={}
-                                            imgDesc={}
+                                            title={"All Star Code"}
+                                            imgSrc={"https://remakelearning.org/wp-content/uploads/2017/11/asc-wp.png"}
+                                            imgDesc={"All Star Code logo"}
                                         >
-
-                                        </CollapsibleCard>*/}
+                                            Like Code Next, All Star Code specializes in getting male high school students
+                                            up to speed with computer science and entrepreneurship. I took part in All Star Code's
+                                            Summer Intensive in the summer of 2020. I'm very grateful for having taken part in All
+                                            Star Code, as this opportunity helped me find my niche within computer science, which is web development.
+                                            Since then, I have remained active as an alumni, taking part in hackathons, conferences with
+                                            important faces in tech, and even employment opportunities at All Star Code.
+                                        </CollapsibleCard>
                                     </Col>
                                 </Row>
                             </Col>
@@ -139,7 +143,7 @@ const AboutContent = () => {
                                             </Container>
 
                                             <p className={"mt-2 px-3"}>
-                                                I'm studying computer science in hopes of having a professinal career
+                                                I'm studying computer science in hopes of having a professional career
                                                 working in either Front-End, Back-End, or Full-Stack Web development.
                                                 Whether I work with an established company or a startup, that is my end
                                                 goal. I decided to pursue this with a business minor, as I aspire to
@@ -177,7 +181,7 @@ const AboutContent = () => {
                                             imgSrc={"https://buddy.works/guides/covers/test-nodejs-app/share-nodejs-logo.png"}
                                             imgDesc={"NodeJS"}
                                         >
-                                            The runtime behind all my projects. I use NodeJS in conjuction
+                                            The runtime behind all my projects. I use NodeJS in conjunction
                                             with other libraries/frameworks, and for some Back-End development
                                             as well.
                                         </CollapsibleCard>
