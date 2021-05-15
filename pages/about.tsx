@@ -21,14 +21,14 @@ const AboutContent = () => {
                                 <Row className={"d-flex flex-column align-items-center"}>
                                     <Col>
                                         <Jumbotron className={"text-center"}>
-                                            <h1>Hobbies</h1>
+                                            <h3>Hobbies</h3>
                                         </Jumbotron>
                                     </Col>
 
                                     <Col>
                                         <CollapsibleCard
                                             title={"Investing"}
-                                            imgSrc={"https://g.foolcdn.com/editorial/images/620816/stock-up-glowing-green-arrow-climbs-on-a-stock-screen.jpg"}
+                                            imgSrc={"/images/about/stocks.webp"}
                                             imgDesc={"Stock Graph"}
                                         >
                                             Finance, along with business, has always been an interest of mine.
@@ -39,7 +39,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"Learning & Teaching"}
-                                            imgSrc={"https://edsurge.imgix.net/uploads/post/image/13456/rocket_launching_from_book-1591395298.jpg?auto=compress%2Cformat&w=1024&h=512&fit=crop"}
+                                            imgSrc={"/images/about/rocket.webp"}
                                             imgDesc={"Learning Art"}
                                         >
                                             I truly love to learn and can happily say I've learnt most of what
@@ -50,7 +50,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"Reading"}
-                                            imgSrc={"https://dcmep4q5dgnih.cloudfront.net/wp-content/uploads/2019/08/26141320/Reflecting-through-stages-of-Reading-1024x683.jpg"}
+                                            imgSrc={"/images/about/reading.webp"}
                                             imgDesc={"Reading Book"}
                                         >
                                             I enjoy curling up with a good book when the rare opportunity arises.
@@ -61,7 +61,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"Programming"}
-                                            imgSrc={"https://content.techgig.com/thumb/msid-79844104,width-860,resizemode-4/5-Best-programming-languages-to-learn-in-2021.jpg?140622"}
+                                            imgSrc={"/images/about/programming.webp"}
                                             imgDesc={"Programming"}
                                         >
                                             Of course, programming is also one of my favorite things to do. I
@@ -72,15 +72,16 @@ const AboutContent = () => {
 
                                     <Col>
                                         <Jumbotron className={"text-center"}>
-                                            <h1>Experiences</h1>
+                                            <h3>Meaningful Experiences</h3>
                                         </Jumbotron>
                                     </Col>
 
                                     <Col>
                                         <CollapsibleCard
-                                            title={"Google Code Next NYC"}
-                                            imgSrc={"https://mikevantassell.com/wp-content/uploads/2019/03/google-code-next-nyc-interior-architecture-0020.jpg"}
+                                            title={"Google Code Next"}
+                                            imgSrc={"/images/about/codenext.webp"}
                                             imgDesc={"Code Next Lab NYC"}
+                                            link={"https://codenext.withgoogle.com"}
                                         >
                                             Code Next is a program by Google that is designed to have high school
                                             students break into the field of computer science.
@@ -94,8 +95,9 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"All Star Code"}
-                                            imgSrc={"https://remakelearning.org/wp-content/uploads/2017/11/asc-wp.png"}
+                                            imgSrc={"/images/about/asc.webp"}
                                             imgDesc={"All Star Code logo"}
+                                            link={"https://allstarcode.org"}
                                         >
                                             Like Code Next, All Star Code specializes in getting male high school students
                                             up to speed with computer science and entrepreneurship. I took part in All Star Code's
@@ -112,7 +114,7 @@ const AboutContent = () => {
                                 <Row className={"d-flex flex-column"}>
                                     <Col>
                                         <Jumbotron className={`d-flex flex-column align-items-center`}>
-                                            <Image src={"/images/IMG_0013.jpg"} className={"w-100"} roundedCircle/>
+                                            <Image src={"/images/about/me.webp"} className={"w-100"} roundedCircle/>
                                             <Container className={"text-center mt-4"}>
                                                 <h2>Deyby Rodriguez</h2>
                                                 <h5 className={"font-italic"}>Natural Problem Solver</h5>
@@ -133,8 +135,8 @@ const AboutContent = () => {
 
                                     <Col>
                                         <Jumbotron className={"d-flex flex-column align-items-center"}>
-                                            <Image src={"https://www.nyit.edu/files/scea/RGB_color_NYIT_logo.png"} className={"w-100 bg-white p-3"} rounded/>
-                                            <Image src={"https://upload.wikimedia.org/wikipedia/en/thumb/7/78/NYIT_Bears_logo.svg/1200px-NYIT_Bears_logo.svg.png"} className={"w-50 mt-5"}/>
+                                            <Image src={"/images/about/nyit.webp"} className={"w-100 bg-white p-3"} rounded/>
+                                            <Image src={"/images/about/bears.webp"} className={"w-50 mt-5"}/>
                                             <Container className={"mt-4 text-center font-italic"}>
                                                 <h2>Proud Bear</h2>
                                                 <h4>Major in Computer Science</h4>
@@ -161,14 +163,14 @@ const AboutContent = () => {
                                 <Row className={"d-flex flex-column align-items-center"}>
                                     <Col>
                                         <Jumbotron className={"text-center"}>
-                                            <h1>Skills</h1>
+                                            <h3>Skills</h3>
                                         </Jumbotron>
                                     </Col>
 
                                     <Col>
                                         <CollapsibleCard
                                             title={"TypeScript"}
-                                            imgSrc={"https://miro.medium.com/max/3840/1*3bHNjGdX_kTIhZM13Nuabg.png"}
+                                            imgSrc={"/images/about/typescript.webp"}
                                             imgDesc={"TypeScript"}
                                         >
                                             My language of choice for all projects and experiments,
@@ -178,7 +180,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"NodeJS"}
-                                            imgSrc={"https://buddy.works/guides/covers/test-nodejs-app/share-nodejs-logo.png"}
+                                            imgSrc={"/images/about/nodejs.webp"}
                                             imgDesc={"NodeJS"}
                                         >
                                             The runtime behind all my projects. I use NodeJS in conjunction
@@ -188,7 +190,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"NextJS"}
-                                            imgSrc={"https://miro.medium.com/max/2880/1*2tmzU7bve-VlTkOMWsk_Hw.jpeg"}
+                                            imgSrc={"/images/about/nextjs.webp"}
                                             imgDesc={"NextJS"}
                                         >
                                             My favorite Front-End JavaScript framework. I love NextJS because of how it
@@ -198,13 +200,51 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"Bootstrap"}
-                                            imgSrc={"https://miro.medium.com/max/1400/1*MD4sw9im4sftZA5u6mfFSg.png"}
+                                            imgSrc={"/images/about/bootstrap.webp"}
                                             imgDesc={"Bootstrap"}
                                         >
                                             For styling my websites and web apps. I love Bootstrap's easy to use
                                             responsive grid layout, along with it's variety of components. I stick to
                                             styling with Bootstrap for all of my projects, unless I have a more complex
                                             visual implemented.
+                                        </CollapsibleCard>
+
+                                        <CollapsibleCard
+                                            title={"Firebase"}
+                                            imgSrc={"/images/about/firebase.webp"}
+                                            imgDesc={"Google Firebase"}
+                                        >
+                                            My go-to platform for development. I love how straight-forward and easy
+                                            to use Firebase is as a whole. I've used Firebase Hosting for a majority of my projects,
+                                            and use Firebase's Firestore as my preferred NoSQL database for my projects, such as this site!
+                                            I also have experience working with other Firebase platform products, such as the Real-Time
+                                            database, Firebase OAUTH, and Firebase Cloud Storage.
+                                        </CollapsibleCard>
+                                    </Col>
+
+                                    <Col>
+                                        <Jumbotron className={"text-center"}>
+                                            <h3>Previous Sites</h3>
+                                        </Jumbotron>
+                                    </Col>
+
+                                    <Col>
+                                        <CollapsibleCard
+                                            title={"deybyr647.com v2"}
+                                            imgSrc={"/images/about/v2.webp"}
+                                            imgDesc={"deybyr647.com v2"}
+                                            link={"https://deybyr647.com"}
+                                        >
+                                            The second version of my personal website
+                                        </CollapsibleCard>
+
+                                        <CollapsibleCard
+                                            title={"deybyr647.com v1"}
+                                            imgSrc={"/images/about/v1.webp"}
+                                            imgDesc={"deybyr647.com v1"}
+                                            link={"https://deybyr647.github.io/personal-website-deprecated/"}
+                                        >
+                                            The first version of my personal website
                                         </CollapsibleCard>
                                     </Col>
                                 </Row>

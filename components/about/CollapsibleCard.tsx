@@ -10,9 +10,10 @@ interface CollapsibleCardProps {
     title: string
     imgSrc: string
     imgDesc: string
+    link?: string
 }
 
-const CollapsibleCard = ({children, title, imgSrc, imgDesc}: CollapsibleCardProps) => {
+const CollapsibleCard = ({children, title, imgSrc, imgDesc, link}: CollapsibleCardProps) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     const toggleExpansion = (e: React.SyntheticEvent) => {
@@ -23,7 +24,14 @@ const CollapsibleCard = ({children, title, imgSrc, imgDesc}: CollapsibleCardProp
     return (
         <Accordion className={"mb-4"}>
             <Card>
-                <Card.Img src={imgSrc} alt={imgDesc}/>
+
+                {link ?
+                    <Card.Link href={link} target={"_blank"} rel={"noopener noreferrer"}>
+                        <Card.Img src={imgSrc} alt={imgDesc}/>
+                    </Card.Link>
+                    :
+                    <Card.Img src={imgSrc} alt={imgDesc}/>
+                }
 
                 <Card.Body>
                     <Accordion.Toggle
@@ -32,6 +40,7 @@ const CollapsibleCard = ({children, title, imgSrc, imgDesc}: CollapsibleCardProp
                         onClick={toggleExpansion}
                         className={"d-flex justify-content-between"}
                     >
+
                         {title}
 
                         {isExpanded ?
