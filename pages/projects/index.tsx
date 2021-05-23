@@ -1,0 +1,71 @@
+import Link from "next/link";
+
+import { Container, Row, Col, Jumbotron, Image, Card, CardColumns } from "react-bootstrap";
+
+import Metadata from '../../components/Metadata';
+import Navigation from '../../components/Navigation';
+import Footer from '../../components/Footer';
+
+import ProjectCard from "../../components/projects/ProjectCard";
+
+const ProjectsContent = () => {
+
+    const createCards = (n: number): Array<React.ReactNode> => {
+        let arr: Array<React.ReactNode> = [];
+
+        for(let i: number = 0; i < n; i++){
+            arr.push(<ProjectCard/>);
+        }
+
+        return arr;
+    }
+
+    return (
+        <Container fluid>
+            <Row className={"p-0"}>
+                <Col xs={2} sm={1} className={"p-0"}>
+                    <Navigation/>
+                </Col>
+
+                <Col xs={10} sm={11} className={"p-0 mt-4"}>
+                    <Container fluid>
+                        <Row>
+                            <Col>
+                                <Jumbotron className={"text-center"}>
+                                    <h2>My Projects</h2>
+                                    <p className={"mt-4"}>
+                                        As the time passes, this list will only grow.
+                                        For now, here it is: my list of creations!
+                                    </p>
+                                </Jumbotron>
+                            </Col>
+                        </Row>
+
+                        <Row>
+                            <Col>
+                                <CardColumns>
+                                    {
+                                        createCards(5)
+                                    }
+                                </CardColumns>
+                            </Col>
+                        </Row>
+                    </Container>
+
+                    <Footer/>
+                </Col>
+            </Row>
+        </Container>
+    )
+}
+
+const ProjectsPage = () => {
+    return (
+        <>
+            <Metadata title={"Projects"}/>
+            <ProjectsContent/>
+        </>
+    )
+}
+
+export default ProjectsPage;

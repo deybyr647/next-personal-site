@@ -6,6 +6,16 @@
     cursor: pointer;
 }
 
+.linkButton {
+    background-color: #5FA8D3;
+    color: #fff;
+}
+
+.linkButton:hover {
+    color: #fff;
+    background-color: #358DC0;
+}
+
 @media(prefers-reduced-motion: no-preference) {
     .logo:hover {
         animation: logo-spin infinite 5s linear;
