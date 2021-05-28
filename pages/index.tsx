@@ -1,11 +1,11 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { Container, Row, Col, Image, Jumbotron } from 'react-bootstrap';
-import styles from '../styles/etc.module.css'
+import { Container, Row, Col, Image, Jumbotron } from "react-bootstrap";
+import styles from "../styles/etc.module.css";
 
-import Metadata from '../components/Metadata';
-import Navigation from '../components/Navigation';
-import Footer from '../components/Footer';
+import Metadata from "../components/Metadata";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 const LandingContent = () => {
     return (

@@ -1,37 +1,39 @@
-import { useState } from 'react';
+import Link from "next/link";
 
-import { Card, Accordion, Button } from 'react-bootstrap';
-import { BsChevronDoubleRight } from 'react-icons/bs';
+import { Card } from "react-bootstrap";
+import { BsChevronDoubleRight } from "react-icons/bs";
 
 import styles from '../../styles/etc.module.css';
 
 interface ProjectCardProps {
     project: {
+        githubLink: string
         imgSrc: string
-        name: string
-        smallDesc: string
-        id: string
+        liveDemoLink: string
+        longDescription: string
+        projectName: string
+        shortDescription: string
     }
 }
 
-const ProjectCard = ({project}: any) => {
+const ProjectCard = ({project}: ProjectCardProps) => {
     return (
         <Card>
-            <Card.Img src={"/images/about/nodejs.webp"} alt={"nodejs"} className={"w-100"}/>
+            <Card.Img src={project.imgSrc} alt={project.projectName} className={"w-100 border"}/>
             <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>{project.projectName}</Card.Title>
+
                 <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
+                    {project.shortDescription}
                 </Card.Text>
-                <Card.Link
-                    href={"https://deybyr647.com"}
-                    className={`btn ${styles.linkButton}`}
-                >
-                    Learn More
-                    &nbsp;
-                    <BsChevronDoubleRight/>
-                </Card.Link>
+
+                <Link href={`/projects/${project.projectName}`}>
+                    <a className={`btn ${styles.linkButton}`}>
+                        Learn More
+                        &nbsp;
+                        <BsChevronDoubleRight/>
+                    </a>
+                </Link>
             </Card.Body>
         </Card>
     )

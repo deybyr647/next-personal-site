@@ -1,24 +1,24 @@
-import Link from "next/link";
+import { useState, Suspense, useEffect } from "react";
 
 import { Container, Row, Col, Jumbotron, Image, Card, CardColumns } from "react-bootstrap";
 
-import Metadata from '../../components/Metadata';
-import Navigation from '../../components/Navigation';
-import Footer from '../../components/Footer';
+import Metadata from "../../components/Metadata";
+import Navigation from "../../components/Navigation";
+import Footer from "../../components/Footer";
 
 import ProjectCard from "../../components/projects/ProjectCard";
 
 const ProjectsContent = () => {
+    const [projects, setProjects] = useState([]);
 
-    const createCards = (n: number): Array<React.ReactNode> => {
-        let arr: Array<React.ReactNode> = [];
+    useEffect(() => {
+        (async () => {
+            let req = await fetch("/api/projects");
+            let data = await req.json();
 
-        for(let i: number = 0; i < n; i++){
-            arr.push(<ProjectCard/>);
-        }
-
-        return arr;
-    }
+            setProjects(data);
+        })();
+    }, []);
 
     return (
         <Container fluid>
@@ -45,7 +45,9 @@ const ProjectsContent = () => {
                             <Col>
                                 <CardColumns>
                                     {
-                                        createCards(5)
+                                        projects.map((p, ndx) =>
+                                            <ProjectCard project={p} key={ndx}/>
+                                        )
                                     }
                                 </CardColumns>
                             </Col>

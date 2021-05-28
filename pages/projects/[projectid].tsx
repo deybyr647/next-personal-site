@@ -1,4 +1,4 @@
-import { GetServerSideProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 
 import { Container, Row, Col, Card, Jumbotron, Image } from "react-bootstrap";
 
@@ -6,7 +6,10 @@ import Metadata from "../../components/Metadata";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 
-const ProjectPageContent = ({project, projectID, err}) => {
+import db from "../../components/firebaseConfig";
+import projects from "../api/projects";
+
+const ProjectPageContent = ({project, projectID}) => {
     return (
         <Container fluid>
             <Row className={"p-0"}>
@@ -19,7 +22,7 @@ const ProjectPageContent = ({project, projectID, err}) => {
                         <Row>
                             <Col>
                                 <pre>
-                                    {JSON.stringify({project, err}, null, 4)}
+                                    {JSON.stringify({project}, null, 4)}
                                 </pre>
                             </Col>
 
@@ -36,39 +39,51 @@ const ProjectPageContent = ({project, projectID, err}) => {
     )
 }
 
-const ProjectPage = ({data, id, error}) => {
+const ProjectPage = ({data, id}) => {
     return (
         <>
-            <Metadata title={"null"}/>
-            <ProjectPageContent project={data} projectID={id} err={error}/>
+            <Metadata title={id}/>
+            <ProjectPageContent project={data} projectID={id}/>
         </>
     )
 }
 
+export const getStaticPaths: GetStaticPaths = async (context) => {
+    let routesOut = [];
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-    const { projectid } = context.query;
+    const projectsRef = db.collection("projects");
+    const allProjects = await projectsRef.get();
 
-    try {
-        let req = await fetch("http://localhost:3000/api/db");
-        let res = await req.json();
-
-        return {
-            props: {
-                data: res,
-                id: projectid,
-                error: null
+    for(const project of allProjects.docs){
+        const {projectName} = project.data();
+        const route = {
+            params: {
+                projectid: projectName
             }
         }
-    } catch(err) {
-        console.error(err);
 
-        return {
-            props: {
-                data: null,
-                error: err.toString(),
-                id: projectid
-            }
+        routesOut.push(route);
+    }
+
+    return {
+        paths: routesOut,
+        fallback: false
+    }
+}
+
+export const getStaticProps: GetStaticProps = async (context) => {
+    const {projectid} = context.params;
+
+    const projectsRef = db.collection("projects");
+    const query = await projectsRef.where("projectName", "==", projectid);
+    const queryResult = await query.get();
+
+    const project = queryResult.docs[0].data();
+
+    return {
+        props: {
+            data: project,
+            id: projectid,
         }
     }
 }
