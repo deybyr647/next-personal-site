@@ -20,7 +20,13 @@ const LandingContent = () => {
                         <Row className={"d-flex flex-column"}>
                             <Col>
                                 <Jumbotron className={`d-flex flex-column align-items-center mt-4`}>
-                                    <Image src={"/images/about/me.webp"} className={"w-75"} roundedCircle/>
+                                    <Image
+                                        alt={"Deyby Rodriguez"}
+                                        src={"/images/about/me.webp"}
+                                        className={"w-75"}
+                                        roundedCircle
+                                    />
+                                    
                                     <Container className={"text-center mt-4"}>
                                         <h2>Deyby Rodriguez</h2>
                                         <h5 className={"font-italic"}>Web Developer</h5>
@@ -37,46 +43,61 @@ const LandingContent = () => {
 
                             <Col>
                                 <Row>
-                                    <Col>
+                                    <Col xs={12} lg={4}>
                                         <Jumbotron>
                                             <h3>Projects</h3>
-                                            <p>Jump to the list of projects I've worked on</p>
+                                            <p>
+                                                See a list of the projects I've
+                                                previously worked on, along with
+                                                the exciting ones I've currently been
+                                                working on!
+                                            </p>
 
                                             <Link href={"/projects"}>
                                                 <a
                                                     className={`btn ${styles.linkButton}`}
                                                 >
-                                                    Learn More
+                                                    See My Projects
                                                 </a>
                                             </Link>
                                         </Jumbotron>
                                     </Col>
 
-                                    <Col>
+                                    <Col xs={12} lg={4}>
                                         <Jumbotron>
                                             <h3>About Me</h3>
-                                            <p>Learn about who I am & what I'm into</p>
+                                            <p>
+                                                Learn about who I am,
+                                                where I've been, and what
+                                                I'm into, besides web
+                                                development and technology
+                                                of course!
+                                            </p>
 
                                             <Link href={"/about"}>
                                                 <a
                                                     className={`btn ${styles.linkButton}`}
                                                 >
-                                                    Learn More
+                                                    Learn About Me
                                                 </a>
                                             </Link>
                                         </Jumbotron>
                                     </Col>
 
-                                    <Col>
+                                    <Col xs={12} lg={4}>
                                         <Jumbotron>
                                             <h3>Contact</h3>
-                                            <p>Learn about ways to get in touch with me</p>
+                                            <p>
+                                                Looking to collaborate on a project
+                                                or for a quick chat about something?
+                                                Don't hesitate to get in touch with me!
+                                            </p>
 
                                             <Link href={"/contact"}>
                                                 <a
                                                     className={`btn ${styles.linkButton}`}
                                                 >
-                                                    Learn More
+                                                    Get In Touch
                                                 </a>
                                             </Link>
                                         </Jumbotron>

@@ -9,6 +9,17 @@ const Metadata = ({title}: MetadataProps) => {
         <Head>
             <meta charSet={"utf-8"}/>
             <meta name={"viewport"} content={"width=device-width, initial-scale=1, shrink-to-fit=no"}/>
+            <meta name={"description"} content={"Deyby Rodriguez's Personal Website. Web Developer & Freelancer"}/>
+            <meta name={"keywords"} content={"Deyby, Rodriguez, Antony, deybyr647, Web Developer, JavaScript, ReactJS, NodeJS"}/>
+            <meta name={"author"} content={"Deyby Rodriguez"}/>
+            <meta name={"robots"} content={"index, follow"}/>
+
+            <meta property={"og:title"} content={"Deyby Rodriguez"}/>
+            <meta property={"og:type"} content={"website"}/>
+            <meta property={"og:image"} content={"%PUBLIC_URL%/opengraph.png"}/>
+            <meta property={"og:url"} content={"https://deybyr647.com"}/>
+            <meta property={"og:description"} content={"Deyby Rodriguez's Personal Website"}/>
+
             <title>{title}</title>
         </Head>
     )

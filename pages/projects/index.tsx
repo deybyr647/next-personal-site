@@ -1,4 +1,4 @@
-import { useState, Suspense, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { Container, Row, Col, Jumbotron, Image, Card, CardColumns } from "react-bootstrap";
 
