@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import { useState } from "react";
 
 import { Card, Accordion } from 'react-bootstrap';
@@ -8,8 +10,8 @@ import styles from '../../styles/etc.module.css';
 interface CollapsibleCardProps {
     children: React.ReactNode
     title: string
-    imgSrc: string
-    imgDesc: string
+    imgSrc: any
+    imgDesc: any
     link?: string
 }
 
@@ -27,10 +29,10 @@ const CollapsibleCard = ({children, title, imgSrc, imgDesc, link}: CollapsibleCa
 
                 {link ?
                     <Card.Link href={link} target={"_blank"} rel={"noopener noreferrer"}>
-                        <Card.Img src={imgSrc} alt={imgDesc}/>
+                        <Image src={imgSrc} alt={imgDesc} className={"card-img-top"} placeholder={"blur"}/>
                     </Card.Link>
                     :
-                    <Card.Img src={imgSrc} alt={imgDesc}/>
+                    <Image src={imgSrc} alt={imgDesc} className={"card-img-top"} placeholder={"blur"}/>
                 }
 
                 <Card.Body>

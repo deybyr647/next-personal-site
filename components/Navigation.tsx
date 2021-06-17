@@ -1,8 +1,11 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 import styles from '../styles/etc.module.css';
-import { Navbar, Nav, Image } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import { BsPerson, BsFileEarmarkText, BsGrid, BsEnvelope } from 'react-icons/bs';
+
+import logo from '../public/logo.svg';
 
 const Navigation = () => {
     return (
@@ -11,7 +14,7 @@ const Navigation = () => {
                 <Navbar.Brand className={"mx-0 p-0 my-3"}>
                     <Link href={"/"}>
                         <a>
-                            <Image src={"/logo.svg"} className={`w-100 ${styles.logo}`} width={"100px"} alt={"Logo"}/>
+                            <Image src={logo} className={`w-100 p-2 ${styles.logo}`} alt={"Logo"}/>
                         </a>
                     </Link>
                 </Navbar.Brand>

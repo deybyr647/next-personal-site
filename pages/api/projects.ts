@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 import db from "../../components/firebaseConfig";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const projects = async (req: NextApiRequest, res: NextApiResponse) => {
     let projectsRef = db.collection("projects");
     let outList = [];
 
@@ -54,3 +54,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         res.status(200).json(outList);
     }
 }
+
+export default projects;

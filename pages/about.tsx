@@ -1,10 +1,30 @@
-import { Container, Row, Col, Image, Jumbotron } from "react-bootstrap";
+import Image from "next/image";
+
+import { Container, Row, Col } from "react-bootstrap";
 
 import Metadata from "../components/Metadata";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
+import Jumbotron from "../components/Jumbotron";
 import CollapsibleCard from "../components/about/CollapsibleCard";
+
+import author from "../public/images/about/me.png";
+import stocksImg from "../public/images/about/stocks.png";
+import rocketImg from "../public/images/about/rocket.png";
+import bookImg from "../public/images/about/reading.png";
+import programmingImg from "../public/images/about/programming.png";
+import codenextImg from "../public/images/about/codenext.png";
+import ascImg from "../public/images/about/asc.png";
+import firebaseImg from "../public/images/about/firebase.png";
+import nyitImg from "../public/images/about/nyit.png";
+import bearLogo from "../public/images/about/bears.png";
+import nodejsImg from "../public/images/about/node.png";
+import nextjsImg from "../public/images/about/next.png";
+import bsImg from "../public/images/about/bootstrap.png";
+import tscImg from "../public/images/about/typescript.png";
+import v2Img from "../public/images/about/v2.webp";
+import v1Img from "../public/images/about/v1.webp";
 
 const AboutContent = () => {
     return (
@@ -28,7 +48,7 @@ const AboutContent = () => {
                                     <Col>
                                         <CollapsibleCard
                                             title={"Investing"}
-                                            imgSrc={"/images/about/stocks.webp"}
+                                            imgSrc={stocksImg}
                                             imgDesc={"Stock Graph"}
                                         >
                                             Finance, along with business, has always been an interest of mine.
@@ -39,7 +59,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"Learning & Teaching"}
-                                            imgSrc={"/images/about/rocket.webp"}
+                                            imgSrc={rocketImg}
                                             imgDesc={"Learning Art"}
                                         >
                                             I truly love to learn and can happily say I've learnt most of what
@@ -50,7 +70,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"Reading"}
-                                            imgSrc={"/images/about/reading.webp"}
+                                            imgSrc={bookImg}
                                             imgDesc={"Reading Book"}
                                         >
                                             I enjoy curling up with a good book when the rare opportunity arises.
@@ -61,7 +81,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"Programming"}
-                                            imgSrc={"/images/about/programming.webp"}
+                                            imgSrc={programmingImg}
                                             imgDesc={"Programming"}
                                         >
                                             Of course, programming is also one of my favorite things to do. I
@@ -79,7 +99,7 @@ const AboutContent = () => {
                                     <Col>
                                         <CollapsibleCard
                                             title={"Google Code Next"}
-                                            imgSrc={"/images/about/codenext.webp"}
+                                            imgSrc={codenextImg}
                                             imgDesc={"Code Next Lab NYC"}
                                             link={"https://codenext.withgoogle.com"}
                                         >
@@ -95,7 +115,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"All Star Code"}
-                                            imgSrc={"/images/about/asc.webp"}
+                                            imgSrc={ascImg}
                                             imgDesc={"All Star Code logo"}
                                             link={"https://allstarcode.org"}
                                         >
@@ -114,10 +134,14 @@ const AboutContent = () => {
                                 <Row className={"d-flex flex-column"}>
                                     <Col>
                                         <Jumbotron className={`d-flex flex-column align-items-center`}>
-                                            <Image src={"/images/about/me.webp"} className={"w-100"} roundedCircle/>
+                                            <Image
+                                                src={author}
+                                                className={"w-100 rounded-circle"}
+                                                alt={"Deyby Rodriguez"}
+                                            />
                                             <Container className={"text-center mt-4"}>
                                                 <h2>Deyby Rodriguez</h2>
-                                                <h5 className={"font-italic"}>Natural Problem Solver</h5>
+                                                <h3 className={"fst-italic"}>Natural Problem Solver</h3>
                                             </Container>
 
                                             <p className={"mt-2 px-3"}>
@@ -135,13 +159,21 @@ const AboutContent = () => {
 
                                     <Col>
                                         <Jumbotron className={"d-flex flex-column align-items-center"}>
-                                            <Image src={"/images/about/nyit.webp"} className={"w-100 bg-white p-3"} rounded/>
-                                            <Image src={"/images/about/bears.webp"} className={"w-50 mt-5"}/>
-                                            <Container className={"mt-4 text-center font-italic"}>
+                                            <Image
+                                                src={nyitImg}
+                                                className={"bg-white p-3 rounded"}
+                                                alt={"NYIT Logo"}
+                                            />
+                                            <Image
+                                                src={bearLogo}
+                                                className={"mt-2 p-3 rounded"}
+                                                alt={"NYIT Bear"}
+                                            />
+                                            <Container className={"mt-4 text-center fst-italic"}>
                                                 <h2>Proud Bear</h2>
+                                                <h3>2021-2025</h3>
                                                 <h4>Major in Computer Science</h4>
                                                 <h4>Minor in Business</h4>
-                                                <h2>2021-2025</h2>
                                             </Container>
 
                                             <p className={"mt-2 px-3"}>
@@ -170,7 +202,7 @@ const AboutContent = () => {
                                     <Col>
                                         <CollapsibleCard
                                             title={"TypeScript"}
-                                            imgSrc={"/images/about/typescript.webp"}
+                                            imgSrc={tscImg}
                                             imgDesc={"TypeScript"}
                                         >
                                             My language of choice for all projects and experiments,
@@ -180,7 +212,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"NodeJS"}
-                                            imgSrc={"/images/about/nodejs.webp"}
+                                            imgSrc={nodejsImg}
                                             imgDesc={"NodeJS"}
                                         >
                                             The runtime behind all my projects. I use NodeJS in conjunction
@@ -190,7 +222,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"NextJS"}
-                                            imgSrc={"/images/about/nextjs.webp"}
+                                            imgSrc={nextjsImg}
                                             imgDesc={"NextJS"}
                                         >
                                             My favorite Front-End JavaScript framework. I love NextJS because of how it
@@ -200,7 +232,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"Bootstrap"}
-                                            imgSrc={"/images/about/bootstrap.webp"}
+                                            imgSrc={bsImg}
                                             imgDesc={"Bootstrap"}
                                         >
                                             For styling my websites and web apps. I love Bootstrap's easy to use
@@ -211,7 +243,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"Firebase"}
-                                            imgSrc={"/images/about/firebase.webp"}
+                                            imgSrc={firebaseImg}
                                             imgDesc={"Google Firebase"}
                                         >
                                             My go-to platform for development. I love how straight-forward and easy
@@ -231,7 +263,7 @@ const AboutContent = () => {
                                     <Col>
                                         <CollapsibleCard
                                             title={"deybyr647.com v2"}
-                                            imgSrc={"/images/about/v2.webp"}
+                                            imgSrc={v2Img}
                                             imgDesc={"deybyr647.com v2"}
                                             link={"https://deybyr647.com"}
                                         >
@@ -240,7 +272,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"deybyr647.com v1"}
-                                            imgSrc={"/images/about/v1.webp"}
+                                            imgSrc={v1Img}
                                             imgDesc={"deybyr647.com v1"}
                                             link={"https://deybyr647.github.io/personal-website-deprecated/"}
                                         >

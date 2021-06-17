@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 
-import { Container, Row, Col, Jumbotron, Image, Card, CardColumns } from "react-bootstrap";
+import { Container, Row, Col, Image, Card, CardColumns } from "react-bootstrap";
 
 import Metadata from "../../components/Metadata";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
+import Jumbotron from "../../components/Jumbotron";
 
 import ProjectCard from "../../components/projects/ProjectCard";
 

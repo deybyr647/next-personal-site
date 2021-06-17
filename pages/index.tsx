@@ -1,11 +1,15 @@
 import Link from "next/link";
+import Image from "next/image";
 
-import { Container, Row, Col, Image, Jumbotron } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import styles from "../styles/etc.module.css";
 
 import Metadata from "../components/Metadata";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import Jumbotron from "../components/Jumbotron";
+
+import author from "../public/images/about/me.png";
 
 const LandingContent = () => {
     return (
@@ -22,14 +26,14 @@ const LandingContent = () => {
                                 <Jumbotron className={`d-flex flex-column align-items-center mt-4`}>
                                     <Image
                                         alt={"Deyby Rodriguez"}
-                                        src={"/images/about/me.webp"}
-                                        className={"w-75"}
-                                        roundedCircle
+                                        src={author}
+                                        className={"rounded-circle"}
+                                        placeholder={"blur"}
                                     />
                                     
                                     <Container className={"text-center mt-4"}>
                                         <h2>Deyby Rodriguez</h2>
-                                        <h5 className={"font-italic"}>Web Developer</h5>
+                                        <h3 className={"fst-italic"}>Web Developer</h3>
                                     </Container>
 
                                     <p className={"mt-2 px-3 text-center"}>
