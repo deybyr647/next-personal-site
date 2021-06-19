@@ -16,6 +16,14 @@
     background-color: #358DC0;
 }
 
+.icon {
+    transition: all 300ms ease-out;
+}
+
+.icon:hover {
+    color: #358DC0;
+}
+
 @media(prefers-reduced-motion: no-preference) {
     .logo:hover {
         animation: logo-spin infinite 5s linear;

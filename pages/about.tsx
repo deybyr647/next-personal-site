@@ -130,7 +130,7 @@ const AboutContent = () => {
                                 </Row>
                             </Col>
 
-                            <Col md={12} lg={4} xl={6} className="order-first order-lg-0">
+                            <Col md={12} lg={4} xl={6} className={"order-first order-lg-0"}>
                                 <Row className={"d-flex flex-column"}>
                                     <Col>
                                         <Jumbotron className={`d-flex flex-column align-items-center`}>
@@ -141,7 +141,7 @@ const AboutContent = () => {
                                             />
                                             <Container className={"text-center mt-4"}>
                                                 <h2>Deyby Rodriguez</h2>
-                                                <h3 className={"fst-italic"}>Natural Problem Solver</h3>
+                                                <h3 className={"fst-italic"}>Web Developer</h3>
                                             </Container>
 
                                             <p className={"mt-2 px-3"}>

@@ -14,7 +14,7 @@ const Navigation = () => {
                 <Navbar.Brand className={"mx-0 p-0 my-3"}>
                     <Link href={"/"}>
                         <a>
-                            <Image src={logo} className={`w-100 p-2 ${styles.logo}`} alt={"Logo"}/>
+                            <Image src={logo} className={`p-2 ${styles.logo}`} alt={"Logo"}/>
                         </a>
                     </Link>
                 </Navbar.Brand>
