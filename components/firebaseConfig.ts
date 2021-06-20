@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import firebase from "firebase";
 
 const config = {
     apiKey: process.env.FIREBASE_API_KEY,
@@ -14,7 +14,7 @@ try {
     firebase.initializeApp(config);
 } catch(err){
     if (!/already exists/.test(err.message)) {
-        console.error('Firebase initialization error', err.stack);
+        console.error("Firebase initialization error", err.stack);
     }
 }
 

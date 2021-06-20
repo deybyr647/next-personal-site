@@ -1,11 +1,11 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
 
-import styles from '../styles/etc.module.css';
-import { Navbar, Nav } from 'react-bootstrap';
-import { BsPerson, BsFileEarmarkText, BsGrid, BsEnvelope } from 'react-icons/bs';
+import styles from "../styles/etc.module.css";
+import { Navbar, Nav } from "react-bootstrap";
+import { BsPerson, BsFileEarmarkText, BsGrid, BsEnvelope } from "react-icons/bs";
 
-import logo from '../public/logo.svg';
+import logo from "../public/logo.svg";
 
 const Navigation = () => {
     return (

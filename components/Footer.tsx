@@ -1,5 +1,5 @@
-import { Navbar, Nav } from 'react-bootstrap';
-import styles from '../styles/etc.module.css';
+import { Navbar, Nav } from "react-bootstrap";
+import styles from "../styles/etc.module.css";
 
 const Footer = () => (
     <Navbar variant={"dark"} className={`sticky-bottom justify-content-center ${styles.footer}`}>

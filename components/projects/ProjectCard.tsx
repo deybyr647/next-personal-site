@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Card } from "react-bootstrap";
 import { BsChevronDoubleRight } from "react-icons/bs";
 
-import styles from '../../styles/etc.module.css';
+import styles from "../../styles/etc.module.css";
 
 interface ProjectCardProps {
     project: {
