@@ -13,9 +13,11 @@ const projects = async (req: NextApiRequest, res: NextApiResponse) => {
 
         try {
             let data = queryResult.docs[0].data();
+            let uid = queryResult.docs[0].id;
 
             let out = {
-                project: data
+                ...data,
+                uid
             }
 
             res.status(200).json(out);
@@ -48,7 +50,7 @@ const projects = async (req: NextApiRequest, res: NextApiResponse) => {
         let allProjects = await projectsRef.get();
 
         for(const project of allProjects.docs){
-            outList.push({...project.data()});
+            outList.push({...project.data(), id: project.id});
         }
 
         res.status(200).json(outList);

@@ -1,11 +1,11 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 
-import { Container, Row, Col, Card, Image } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 import Metadata from "../../components/Metadata";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
-import Jumbotron from "../../components/Jumbotron";
+//import Jumbotron from "../../components/Jumbotron";
 
 import db from "../../components/firebaseConfig";
 import projects from "../api/projects";

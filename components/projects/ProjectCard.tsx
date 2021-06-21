@@ -19,7 +19,7 @@ interface ProjectCardProps {
 const ProjectCard = ({project}: ProjectCardProps) => {
     return (
         <Card>
-            <Card.Img src={project.imgSrc} alt={project.projectName} className={"w-100 border"}/>
+            <Card.Img src={project.imgSrc} alt={project.projectName} className={"border"}/>
             <Card.Body>
                 <Card.Title>{project.projectName}</Card.Title>
 

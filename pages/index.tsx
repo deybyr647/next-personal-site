@@ -73,7 +73,7 @@ const LandingContent = () => {
 
                                     <Container className={"text-center mt-4"}>
                                         <h2>Deyby Rodriguez's</h2>
-                                        <h3 className={"fst-italic"}>Personal Website</h3>
+                                        <h3 className={"font-italic"}>Personal Website</h3>
                                     </Container>
 
                                     <p className={"mt-2 px-3 text-center"}>

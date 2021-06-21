@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { Container, Row, Col, Image, Card, CardColumns } from "react-bootstrap";
+import { Container, Row, Col, CardColumns } from "react-bootstrap";
 
 import Metadata from "../../components/Metadata";
 import Navigation from "../../components/Navigation";

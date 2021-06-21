@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "bootstrap": "^5.0.1",
+    "bootstrap": "4.6.0",
     "firebase": "^8.6.7",
     "framer-motion": "^4.1.17",
     "next": "^11.0.0",

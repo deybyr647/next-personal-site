@@ -141,7 +141,7 @@ const AboutContent = () => {
                                             />
                                             <Container className={"text-center mt-4"}>
                                                 <h2>Deyby Rodriguez</h2>
-                                                <h3 className={"fst-italic"}>Web Developer</h3>
+                                                <h3 className={"font-italic"}>Web Developer</h3>
                                             </Container>
 
                                             <p className={"mt-2 px-3"}>
@@ -169,7 +169,7 @@ const AboutContent = () => {
                                                 className={"mt-2 p-3 rounded"}
                                                 alt={"NYIT Bear"}
                                             />
-                                            <Container className={"mt-4 text-center fst-italic"}>
+                                            <Container className={"mt-4 text-center font-italic"}>
                                                 <h2>Proud Bear</h2>
                                                 <h3>2021-2025</h3>
                                                 <h4>Major in Computer Science</h4>
