@@ -50,7 +50,7 @@ const projects = async (req: NextApiRequest, res: NextApiResponse) => {
         let allProjects = await projectsRef.get();
 
         for(const project of allProjects.docs){
-            outList.push({...project.data(), id: project.id});
+            outList.push({ ...project.data(), id: project.id });
         }
 
         res.status(200).json(outList);

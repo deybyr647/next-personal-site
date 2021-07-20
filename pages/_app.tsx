@@ -17,12 +17,12 @@ const MyApp = ({Component, pageProps, router}: AppProps) => {
         <AnimatePresence>
             <div>
                 <motion.div
-                    transition={pageTransition}
-                    key={router.pathname}
-                    initial={{ x: 0, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
+                    transition={ pageTransition }
+                    key={ router.pathname }
+                    initial={ { x: 0, opacity: 0 } }
+                    animate={ { x: 0, opacity: 1 } }
                 >
-                    <Component {...pageProps} key={router.pathname} />
+                    <Component { ...pageProps } key={ router.pathname } />
                 </motion.div>
             </div>
         </AnimatePresence>

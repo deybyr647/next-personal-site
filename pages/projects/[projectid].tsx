@@ -1,16 +1,25 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
+import { useEffect, useState } from "react";
 
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Card, Image } from "react-bootstrap";
 
 import Metadata from "../../components/Metadata";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
-//import Jumbotron from "../../components/Jumbotron";
+import Jumbotron from "../../components/Jumbotron";
+import TechStackCard from "../../components/projects/TechStackCard";
 
+import { strToComponent } from "../../components/projects/TechStackCard";
 import db from "../../components/firebaseConfig";
-import projects from "../api/projects";
 
-const ProjectPageContent = ({project, projectID}) => {
+const ProjectPageContent = ({ project }) => {
+    const [techStack, setTechStack] = useState([]);
+
+    useEffect(() => {
+        setTechStack(project.techStack.map(strToComponent));
+        console.log(techStack);
+    }, [])
+
     return (
         <Container fluid>
             <Row className={"p-0"}>
@@ -20,15 +29,47 @@ const ProjectPageContent = ({project, projectID}) => {
 
                 <Col xs={10} sm={11} className={"p-0 mt-4"}>
                     <Container fluid>
-                        <Row>
-                            <Col>
-                                <pre>
-                                    {JSON.stringify({project}, null, 4)}
-                                </pre>
+                        <Row className={"mb-4"}>
+                            <Col md={12} lg={4} xl={3}>
+                                <Card>
+                                    <Card.Img
+                                        src={ project.logoSrc }
+                                        className={"rounded-circle"}
+                                        variant={"top"}
+                                    />
+
+                                    <Card.Body>
+                                        <Card.Title>Project Bio</Card.Title>
+
+                                        <Card.Text>
+                                            { project.longDescription }
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
                             </Col>
 
-                            <Col>
-                                <h1>{projectID}</h1>
+                            <Col md={12} lg={4} xl={6} className={"order-first order-lg-0"}>
+                                <Jumbotron className={"d-flex flex-column align-items-center"}>
+                                    <h2 className={"text-center"}>About { project.projectName }</h2>
+
+                                    <Image
+                                        className={"w-100 my-4"}
+                                        rounded
+                                        src={ project.imgSrc }
+                                    />
+
+                                    <h5 className={"text-center font-italic"}>{ project.tagline }</h5>
+                                </Jumbotron>
+
+                                <Jumbotron className={""}>
+                                    <h5 className={"text-center pb-5"}>{ project.projectName } Was Developed With...</h5>
+
+                                    <TechStackCard techArr={ techStack }/>
+                                </Jumbotron>
+                            </Col>
+
+                            <Col md={12} lg={4} xl={3}>
+
                             </Col>
                         </Row>
                     </Container>
@@ -40,11 +81,11 @@ const ProjectPageContent = ({project, projectID}) => {
     )
 }
 
-const ProjectPage = ({data, id}) => {
+const ProjectPage = ({ data, id }) => {
     return (
         <>
-            <Metadata title={id}/>
-            <ProjectPageContent project={data} projectID={id}/>
+            <Metadata title={ id }/>
+            <ProjectPageContent project={ data }/>
         </>
     )
 }
@@ -72,8 +113,8 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
     }
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
-    const {projectid} = context.params;
+export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
+    const { projectid } = context.params;
 
     const projectsRef = db.collection("projects");
     const query = await projectsRef.where("projectName", "==", projectid);

@@ -12,7 +12,7 @@ const config = {
 
 try {
     firebase.initializeApp(config);
-} catch(err){
+} catch(err) {
     if (!/already exists/.test(err.message)) {
         console.error("Firebase initialization error", err.stack);
     }
