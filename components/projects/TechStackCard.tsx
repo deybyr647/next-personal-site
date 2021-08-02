@@ -1,5 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
-import { SiBootstrap, SiNextDotJs, SiTypescript, SiHtml5, SiCss3, SiJavascript, SiReact, SiNodeDotJs, SiPython, SiRust, SiZeit, SiFirebase, SiGooglemaps } from "react-icons/si";
+import { SiBootstrap, SiNextDotJs, SiTypescript, SiHtml5, SiCss3, SiGooglemaps } from "react-icons/si";
+import { SiJavascript, SiReact, SiNodeDotJs, SiPython, SiRust, SiZeit, SiFirebase } from "react-icons/si";
 import { ReactNode } from "react";
 
 interface TechStackCardProps {
@@ -31,7 +32,7 @@ const TechStackCard = ({ techArr }: TechStackCardProps) => {
                 {
                     techArr.map((component: ReactNode, ndx: number) => {
                         return (
-                            <Col className={"mx-4"} key={ ndx }>
+                            <Col className={"mx-4 mb-4"} key={ ndx }>
                                 { component }
                             </Col>
                         )

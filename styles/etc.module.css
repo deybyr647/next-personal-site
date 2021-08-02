@@ -24,17 +24,10 @@
     color: #358DC0;
 }
 
-@media(prefers-reduced-motion: no-preference) {
-    .logo:hover {
-        animation: logo-spin infinite 5s linear;
-    }
+.logo {
+    transition: all 500ms ease-out;
 }
 
-@keyframes logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.logo:hover {
+    transform: rotateY(180deg);
 }

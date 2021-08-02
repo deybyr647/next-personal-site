@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 import Jumbotron from "../components/Jumbotron";
 import CollapsibleCard from "../components/about/CollapsibleCard";
 
-import author from "../public/images/about/me.png";
+import author from "../public/images/me.png";
 import stocksImg from "../public/images/about/stocks.png";
 import rocketImg from "../public/images/about/rocket.png";
 import bookImg from "../public/images/about/reading.png";
@@ -136,8 +136,10 @@ const AboutContent = () => {
                                         <Jumbotron className={`d-flex flex-column align-items-center`}>
                                             <Image
                                                 src={author}
-                                                className={"w-100 rounded-circle"}
+                                                className={"rounded-circle"}
                                                 alt={"Deyby Rodriguez"}
+                                                width={540}
+                                                height={540}
                                             />
                                             <Container className={"text-center mt-4"}>
                                                 <h2>Deyby Rodriguez</h2>

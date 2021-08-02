@@ -10,7 +10,7 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import Jumbotron from "../components/Jumbotron";
 
-import author from "../public/images/about/me.png";
+import author from "../public/images/me.png";
 
 const LandingContent = () => {
     return (
@@ -63,12 +63,14 @@ const LandingContent = () => {
                             </Col>
 
                             <Col md={12} lg={6} className={"order-first order-lg-0"}>
-                                <Jumbotron className={`d-flex flex-column align-items-center`}>
+                                <Jumbotron className={"d-flex flex-column align-items-center"}>
                                     <Image
                                         alt={"Deyby Rodriguez"}
                                         src={author}
                                         className={"rounded-circle"}
                                         placeholder={"blur"}
+                                        width={540}
+                                        height={540}
                                     />
 
                                     <Container className={"text-center mt-4"}>

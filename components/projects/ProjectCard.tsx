@@ -5,20 +5,27 @@ import { BsChevronDoubleRight } from "react-icons/bs";
 
 import styles from "../../styles/etc.module.css";
 
-interface ProjectCardProps {
+interface ProjectProps {
     project: {
         githubLink: string
         imgSrc: string
         liveDemoLink: string
+        logoSrc: string
         longDescription: string
         projectName: string
         shortDescription: string
+        tagline: string
+        techStack: string[]
     }
 }
 
-const ProjectCard = ({project}: ProjectCardProps) => {
+const ProjectCard = ({project}: ProjectProps) => {
+    const styling = {
+        backgroundColor: "#f9f9fa",
+    }
+
     return (
-        <Card>
+        <Card style={ styling }>
             <Card.Img src={project.imgSrc} alt={project.projectName} className={"border"}/>
             <Card.Body>
                 <Card.Title>{project.projectName}</Card.Title>
@@ -39,4 +46,5 @@ const ProjectCard = ({project}: ProjectCardProps) => {
     )
 }
 
+export type { ProjectProps };
 export default ProjectCard;

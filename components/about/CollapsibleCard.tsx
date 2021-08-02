@@ -22,9 +22,13 @@ const CollapsibleCard = ({ children, title, imgSrc, imgDesc, link }: Collapsible
         setIsExpanded(!isExpanded);
     }
 
+    const styling = {
+        backgroundColor: "#f9f9fa",
+    }
+
     return (
         <Accordion className={"mb-4"}>
-            <Card>
+            <Card style={ styling }>
 
                 {link ?
                     <Card.Link href={ link } target={"_blank"} rel={"noopener noreferrer"}>
