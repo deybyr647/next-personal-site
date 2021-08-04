@@ -23,8 +23,8 @@ import nodejsImg from "../public/images/about/node.png";
 import nextjsImg from "../public/images/about/next.png";
 import bsImg from "../public/images/about/bootstrap.png";
 import tscImg from "../public/images/about/typescript.png";
-import v2Img from "../public/images/about/v2.webp";
-import v1Img from "../public/images/about/v1.webp";
+import htmlImg from "../public/images/about/htmlcss.png";
+import jsImg from "../public/images/about/javascript.png";
 
 const AboutContent = () => {
     return (
@@ -208,8 +208,10 @@ const AboutContent = () => {
                                             imgDesc={"TypeScript"}
                                         >
                                             My language of choice for all projects and experiments,
-                                            along with JavaScript. I have thorough experience working
-                                            with ES6, along with various libraries, such as React.
+                                            along with JavaScript. I love working with TypeScript
+                                            because of how it builds on top of my favorite language
+                                            using stricter rules and static typing, allowing me to
+                                            squash bugs and write cleaner, more declarative code!
                                         </CollapsibleCard>
 
                                         <CollapsibleCard
@@ -229,7 +231,9 @@ const AboutContent = () => {
                                         >
                                             My favorite Front-End JavaScript framework. I love NextJS because of how it
                                             builds upon my favorite library, React. NextJS is at the core of my
-                                            more recent projects, like this website!
+                                            more recent projects, like this website! Features like built-in routing,
+                                            API routes & server side rendering have solidified NextJS as my go-to
+                                            technology for projects!
                                         </CollapsibleCard>
 
                                         <CollapsibleCard
@@ -254,31 +258,26 @@ const AboutContent = () => {
                                             I also have experience working with other Firebase platform products, such as the Real-Time
                                             database, Firebase OAUTH, and Firebase Cloud Storage.
                                         </CollapsibleCard>
-                                    </Col>
 
-                                    <Col>
-                                        <Jumbotron className={"text-center"}>
-                                            <h3>Previous Sites</h3>
-                                        </Jumbotron>
-                                    </Col>
-
-                                    <Col>
                                         <CollapsibleCard
-                                            title={"deybyr647.com v2"}
-                                            imgSrc={v2Img}
-                                            imgDesc={"deybyr647.com v2"}
-                                            link={"https://deybyr647.com"}
+                                            title={"JavaScript (ES6+)"}
+                                            imgSrc={jsImg}
+                                            imgDesc={"JavaScript Logo"}
                                         >
-                                            The second version of my personal website
+                                            The first programming language I stumbled upon! Although I prefer working with
+                                            TypeScript, I still use JavaScript for quick experiments!
+                                            I have thorough experience with the language, along with frameworks/libraries, such as
+                                            ReactJS & ThreeJS!
                                         </CollapsibleCard>
 
                                         <CollapsibleCard
-                                            title={"deybyr647.com v1"}
-                                            imgSrc={v1Img}
-                                            imgDesc={"deybyr647.com v1"}
-                                            link={"https://deybyr647.github.io/personal-website-deprecated/"}
+                                            title={"HTML & CSS"}
+                                            imgSrc={htmlImg}
+                                            imgDesc={"HTML & CSS Logos"}
                                         >
-                                            The first version of my personal website
+                                            HTML & CSS are at the core of all my web projects! I have experience in writing
+                                            semantic web pages with HTML5, and have experience in responsive web design
+                                            using CSS3 !
                                         </CollapsibleCard>
                                     </Col>
                                 </Row>
