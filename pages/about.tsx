@@ -48,7 +48,7 @@ const AboutContent = () => {
                                     <Col>
                                         <CollapsibleCard
                                             title={"Investing"}
-                                            imgSrc={stocksImg}
+                                            imgSrc={ stocksImg }
                                             imgDesc={"Stock Graph"}
                                         >
                                             Finance, along with business, has always been an interest of mine.
@@ -59,7 +59,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"Learning & Teaching"}
-                                            imgSrc={rocketImg}
+                                            imgSrc={ rocketImg }
                                             imgDesc={"Learning Art"}
                                         >
                                             I truly love to learn and can happily say I've learnt most of what
@@ -70,7 +70,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"Reading"}
-                                            imgSrc={bookImg}
+                                            imgSrc={ bookImg }
                                             imgDesc={"Reading Book"}
                                         >
                                             I enjoy curling up with a good book when the rare opportunity arises.
@@ -81,7 +81,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"Programming"}
-                                            imgSrc={programmingImg}
+                                            imgSrc={ programmingImg }
                                             imgDesc={"Programming"}
                                         >
                                             Of course, programming is also one of my favorite things to do. I
@@ -99,7 +99,7 @@ const AboutContent = () => {
                                     <Col>
                                         <CollapsibleCard
                                             title={"Google Code Next"}
-                                            imgSrc={codenextImg}
+                                            imgSrc={ codenextImg }
                                             imgDesc={"Code Next Lab NYC"}
                                             link={"https://codenext.withgoogle.com"}
                                         >
@@ -115,7 +115,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"All Star Code"}
-                                            imgSrc={ascImg}
+                                            imgSrc={ ascImg }
                                             imgDesc={"All Star Code logo"}
                                             link={"https://allstarcode.org"}
                                         >
@@ -135,7 +135,7 @@ const AboutContent = () => {
                                     <Col>
                                         <Jumbotron className={`d-flex flex-column align-items-center`}>
                                             <Image
-                                                src={author}
+                                                src={ author }
                                                 className={"rounded-circle"}
                                                 alt={"Deyby Rodriguez"}
                                                 width={540}
@@ -162,12 +162,12 @@ const AboutContent = () => {
                                     <Col>
                                         <Jumbotron className={"d-flex flex-column align-items-center"}>
                                             <Image
-                                                src={nyitImg}
+                                                src={ nyitImg }
                                                 className={"bg-white p-3 rounded"}
                                                 alt={"NYIT Logo"}
                                             />
                                             <Image
-                                                src={bearLogo}
+                                                src={ bearLogo }
                                                 className={"mt-2 p-3 rounded"}
                                                 alt={"NYIT Bear"}
                                             />
@@ -204,7 +204,7 @@ const AboutContent = () => {
                                     <Col>
                                         <CollapsibleCard
                                             title={"TypeScript"}
-                                            imgSrc={tscImg}
+                                            imgSrc={ tscImg }
                                             imgDesc={"TypeScript"}
                                         >
                                             My language of choice for all projects and experiments,
@@ -216,7 +216,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"NodeJS"}
-                                            imgSrc={nodejsImg}
+                                            imgSrc={ nodejsImg }
                                             imgDesc={"NodeJS"}
                                         >
                                             The runtime behind all my projects. I use NodeJS in conjunction
@@ -226,7 +226,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"NextJS"}
-                                            imgSrc={nextjsImg}
+                                            imgSrc={ nextjsImg }
                                             imgDesc={"NextJS"}
                                         >
                                             My favorite Front-End JavaScript framework. I love NextJS because of how it
@@ -238,7 +238,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"Bootstrap"}
-                                            imgSrc={bsImg}
+                                            imgSrc={ bsImg }
                                             imgDesc={"Bootstrap"}
                                         >
                                             For styling my websites and web apps. I love Bootstrap's easy to use
@@ -249,7 +249,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"Firebase"}
-                                            imgSrc={firebaseImg}
+                                            imgSrc={ firebaseImg }
                                             imgDesc={"Google Firebase"}
                                         >
                                             My go-to platform for development. I love how straight-forward and easy
@@ -261,7 +261,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"JavaScript (ES6+)"}
-                                            imgSrc={jsImg}
+                                            imgSrc={ jsImg }
                                             imgDesc={"JavaScript Logo"}
                                         >
                                             The first programming language I stumbled upon! Although I prefer working with
@@ -272,7 +272,7 @@ const AboutContent = () => {
 
                                         <CollapsibleCard
                                             title={"HTML & CSS"}
-                                            imgSrc={htmlImg}
+                                            imgSrc={ htmlImg }
                                             imgDesc={"HTML & CSS Logos"}
                                         >
                                             HTML & CSS are at the core of all my web projects! I have experience in writing

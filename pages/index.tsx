@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { Container, Row, Col } from "react-bootstrap";
-import { SiNextDotJs, SiZeit, SiBootstrap, SiTypescript, SiFirebase } from "react-icons/si";
 import styles from "../styles/etc.module.css";
 
 import Metadata from "../components/Metadata";
@@ -37,7 +36,7 @@ const LandingContent = () => {
 
                                     <Link href={"/about"}>
                                         <a
-                                            className={`btn ${styles.linkButton}`}
+                                            className={`btn ${ styles.linkButton }`}
                                         >
                                             Learn About Me
                                         </a>
@@ -54,7 +53,7 @@ const LandingContent = () => {
 
                                     <Link href={"/contact"}>
                                         <a
-                                            className={`btn ${styles.linkButton}`}
+                                            className={`btn ${ styles.linkButton }`}
                                         >
                                             Get In Touch
                                         </a>
@@ -100,7 +99,7 @@ const LandingContent = () => {
 
                                     <Link href={"/projects"}>
                                         <a
-                                            className={`btn ${styles.linkButton}`}
+                                            className={`btn ${ styles.linkButton }`}
                                         >
                                             See My Projects
                                         </a>
@@ -108,21 +107,22 @@ const LandingContent = () => {
                                 </Jumbotron>
 
                                 <Jumbotron>
-                                    <h3 className={"mb-4"}>Site Made Using...</h3>
+                                    <h3>Resume</h3>
 
-                                    <Container className={"d-flex justify-content-between"}>
-                                        <SiNextDotJs size={"2em"} title={"NextJS"} className={styles.icon}/>
-                                        <SiBootstrap size={"2em"} title={"Bootstrap"} className={styles.icon}/>
-                                    </Container>
+                                    <p>
+                                        See my resume, which includes my
+                                        work experience, education history, notable
+                                        skills & more!
+                                    </p>
 
-                                    <Container className={"d-flex justify-content-center my-3"}>
-                                        <SiTypescript size={"2em"} title={"TypeScript"} className={styles.icon}/>
-                                    </Container>
-
-                                    <Container className={"d-flex justify-content-between"}>
-                                        <SiFirebase size={"2em"} title={"Firebase"} className={styles.icon}/>
-                                        <SiZeit size={"2em"} title={"Vercel"} className={styles.icon}/>
-                                    </Container>
+                                    <a
+                                        className={`btn ${ styles.linkButton }`}
+                                        href={"/Resume.pdf"}
+                                        target={"_blank"}
+                                        rel={"noopener noreferrer"}
+                                    >
+                                        See My Resume
+                                    </a>
                                 </Jumbotron>
                             </Col>
                         </Row>

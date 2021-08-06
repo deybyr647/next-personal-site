@@ -9,14 +9,14 @@ import logo from "../public/logo.svg";
 
 const Navigation = () => {
     return (
-        <Navbar variant={"dark"} className={`h-100 d-flex align-items-start justify-content-center ${styles.navigation}`}>
+        <Navbar variant={"dark"} className={`h-100 d-flex align-items-start justify-content-center ${ styles.navigation }`}>
             <Nav className={"d-flex text-center flex-column sticky-top"}>
                 <Navbar.Brand className={"mx-0 p-0 my-3"}>
                     <Link href={"/"}>
                         <a>
                             <Image
-                                src={logo}
-                                className={styles.logo}
+                                src={ logo }
+                                className={ styles.logo }
                                 alt={"Logo"}
                             />
                         </a>

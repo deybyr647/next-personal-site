@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/globals.css";
 
-const MyApp = ({Component, pageProps, router}: AppProps) => {
+const MyApp = ({ Component, pageProps, router }: AppProps) => {
     const pageTransition = {
         type: "spring",
         damping: 10,

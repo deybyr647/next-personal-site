@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { Card } from "react-bootstrap";
-import { BsChevronDoubleRight } from "react-icons/bs";
 
 import styles from "../../styles/etc.module.css";
 
@@ -19,26 +18,24 @@ interface ProjectProps {
     }
 }
 
-const ProjectCard = ({project}: ProjectProps) => {
+const ProjectCard = ({ project }: ProjectProps) => {
     const styling = {
         backgroundColor: "#f9f9fa",
     }
 
     return (
         <Card style={ styling }>
-            <Card.Img src={project.imgSrc} alt={project.projectName} className={"border"}/>
+            <Card.Img src={ project.imgSrc } alt={ project.projectName } className={"border"}/>
             <Card.Body>
-                <Card.Title>{project.projectName}</Card.Title>
+                <Card.Title>{ project.projectName }</Card.Title>
 
                 <Card.Text>
-                    {project.shortDescription}
+                    { project.shortDescription }
                 </Card.Text>
 
-                <Link href={`/projects/${project.projectName}`}>
-                    <a className={`btn ${styles.linkButton}`}>
+                <Link href={`/projects/${ project.projectName }`}>
+                    <a className={`btn ${ styles.linkButton }`}>
                         Learn More
-                        &nbsp;
-                        <BsChevronDoubleRight/>
                     </a>
                 </Link>
             </Card.Body>

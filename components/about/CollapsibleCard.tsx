@@ -1,7 +1,7 @@
-import Image from 'next/image';
+import Image from "next/image";
 import { useState, ReactNode, SyntheticEvent } from "react";
 
-import { Card, Accordion } from 'react-bootstrap';
+import { Card, Accordion } from "react-bootstrap";
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 
 import styles from "../../styles/etc.module.css";

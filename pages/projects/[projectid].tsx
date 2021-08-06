@@ -90,7 +90,7 @@ const ProjectPageContent = ({ project }: ProjectProps) => {
                                             See the { project.projectName } project live!
                                         </Card.Text>
 
-                                        <a className={`btn ${styles.linkButton}`} href={ project.liveDemoLink }>
+                                        <a className={`btn ${ styles.linkButton }`} href={ project.liveDemoLink }>
                                             See Live
                                         </a>
                                     </Card.Body>
@@ -110,7 +110,7 @@ const ProjectPageContent = ({ project }: ProjectProps) => {
                                             Checkout the { project.projectName } project on GitHub!
                                         </Card.Text>
 
-                                        <a className={`btn ${styles.linkButton}`} href={ project.githubLink }>
+                                        <a className={`btn ${ styles.linkButton }`} href={ project.githubLink }>
                                             See on GitHub
                                         </a>
                                     </Card.Body>

@@ -4,7 +4,7 @@ interface MetadataProps {
     title: string
 }
 
-const Metadata = ({title}: MetadataProps) => {
+const Metadata = ({ title }: MetadataProps) => {
     return (
         <Head>
             <meta charSet={"utf-8"}/>
@@ -20,7 +20,7 @@ const Metadata = ({title}: MetadataProps) => {
             <meta property={"og:url"} content={"https://deybyr647.com"}/>
             <meta property={"og:description"} content={"Deyby Rodriguez's Personal Website"}/>
 
-            <title>{title}</title>
+            <title>{ title }</title>
         </Head>
     )
 }
