@@ -9,8 +9,8 @@ const Metadata = ({ title }: MetadataProps) => {
         <Head>
             <meta charSet={"utf-8"}/>
             <meta name={"viewport"} content={"width=device-width, initial-scale=1, shrink-to-fit=no"}/>
-            <meta name={"description"} content={"Deyby Rodriguez's Personal Website. Web Developer & Freelancer"}/>
-            <meta name={"keywords"} content={"Deyby, Rodriguez, Antony, deybyr647, Web Developer, JavaScript, ReactJS, NodeJS"}/>
+            <meta name={"description"} content={"Deyby Rodriguez's Personal Website. Full-Stack Web Developer"}/>
+            <meta name={"keywords"} content={"Deyby, Rodriguez, Antony, deybyr647, Web Developer, JavaScript, ReactJS, NodeJS, NextJS"}/>
             <meta name={"author"} content={"Deyby Rodriguez"}/>
             <meta name={"robots"} content={"index, follow"}/>
 
