@@ -142,7 +142,7 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
     const allProjects = await projectsRef.get();
 
     for(const project of allProjects.docs){
-        const {projectName} = project.data();
+        const { projectName } = project.data();
         const route = {
             params: {
                 projectid: projectName

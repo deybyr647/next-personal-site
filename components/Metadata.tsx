@@ -16,7 +16,7 @@ const Metadata = ({ title }: MetadataProps) => {
 
             <meta property={"og:title"} content={"Deyby Rodriguez"}/>
             <meta property={"og:type"} content={"website"}/>
-            <meta property={"og:image"} content={"%PUBLIC_URL%/opengraph.png"}/>
+            <meta property={"og:image"} content={"https://deybyr647.com/opengraph.png"}/>
             <meta property={"og:url"} content={"https://deybyr647.com"}/>
             <meta property={"og:description"} content={"Deyby Rodriguez's Personal Website"}/>
 
