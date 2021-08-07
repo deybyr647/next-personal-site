@@ -154,7 +154,7 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
 
     return {
         paths: routesOut,
-        fallback: false
+        fallback: "blocking"
     }
 }
 
@@ -172,7 +172,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
             data: project,
             id: projectid,
         },
-        revalidate: 60
+        revalidate: 30
     }
 }
 
