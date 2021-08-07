@@ -1,65 +1,147 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Link from "next/link";
+import Image from "next/image";
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+import { Container, Row, Col } from "react-bootstrap";
+import styles from "../styles/etc.module.css";
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+import Metadata from "../components/Metadata";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
+import Jumbotron from "../components/Jumbotron";
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+import author from "../public/images/me.png";
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+const LandingContent = () => {
+    return (
+        <Container fluid>
+            <Row className={"p-0"}>
+                <Col xs={2} sm={1} className={"p-0"}>
+                    <Navigation/>
+                </Col>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+                <Col xs={10} sm={11} className={"p-0"}>
+                    <Container fluid>
+                        <Row className={"mt-4"}>
+                            <Col md={12} lg={3} className={"d-flex flex-column justify-content-between"}>
+                                <Jumbotron>
+                                    <h3>About Me</h3>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+                                    <p>
+                                        Learn about who I am,
+                                        where I've been, and what
+                                        I'm into, besides web
+                                        development and technology
+                                        of course!
+                                    </p>
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+                                    <Link href={"/about"}>
+                                        <a
+                                            className={`btn ${ styles.linkButton }`}
+                                        >
+                                            Learn About Me
+                                        </a>
+                                    </Link>
+                                </Jumbotron>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+                                <Jumbotron>
+                                    <h3>Contact</h3>
+
+                                    <p>
+                                        Looking to collaborate on a project or for a quick chat about something?
+                                        Don't hesitate to get in touch with me!
+                                    </p>
+
+                                    <Link href={"/contact"}>
+                                        <a
+                                            className={`btn ${ styles.linkButton }`}
+                                        >
+                                            Get In Touch
+                                        </a>
+                                    </Link>
+                                </Jumbotron>
+                            </Col>
+
+                            <Col md={12} lg={6} className={"order-first order-lg-0"}>
+                                <Jumbotron className={"d-flex flex-column align-items-center"}>
+                                    <Image
+                                        alt={"Deyby Rodriguez"}
+                                        src={author}
+                                        className={"rounded-circle"}
+                                        placeholder={"blur"}
+                                        width={540}
+                                        height={540}
+                                    />
+
+                                    <Container className={"text-center mt-4"}>
+                                        <h2>Deyby Rodriguez's</h2>
+                                        <h3 className={"font-italic"}>Personal Website</h3>
+                                    </Container>
+
+                                    <p className={"mt-2 px-3 text-center"}>
+                                        Welcome to my website! <br/>
+                                        Feel free to look around my site & at my projects! <br/>
+                                        If you're looking to collaborate on a project with me,
+                                        feel free to get in touch with me!
+                                    </p>
+                                </Jumbotron>
+                            </Col>
+
+                            <Col md={12} lg={3} className={"d-flex flex-column justify-content-between"}>
+                                <Jumbotron>
+                                    <h3>Projects</h3>
+
+                                    <p>
+                                        See a list of the projects I've
+                                        previously worked on, along with
+                                        the exciting ones I've currently been
+                                        working on!
+                                    </p>
+
+                                    <Link href={"/projects"}>
+                                        <a
+                                            className={`btn ${ styles.linkButton }`}
+                                        >
+                                            See My Projects
+                                        </a>
+                                    </Link>
+                                </Jumbotron>
+
+                                <Jumbotron>
+                                    <h3>Resume</h3>
+
+                                    <p>
+                                        See my resume, which includes my
+                                        work experience, education history, notable
+                                        skills & more!
+                                    </p>
+
+                                    <a
+                                        className={`btn ${ styles.linkButton }`}
+                                        href={"/Resume.pdf"}
+                                        target={"_blank"}
+                                        rel={"noopener noreferrer"}
+                                    >
+                                        See My Resume
+                                    </a>
+                                </Jumbotron>
+                            </Col>
+                        </Row>
+                    </Container>
+
+                    <Footer/>
+                </Col>
+            </Row>
+        </Container>
+    )
 }
+
+const LandingPage = () => {
+    return (
+        <>
+            <Metadata title={"Deyby Rodriguez"}/>
+            <LandingContent/>
+        </>
+    )
+}
+
+export default LandingPage;
