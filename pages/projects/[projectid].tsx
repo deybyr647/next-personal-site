@@ -130,7 +130,7 @@ const ProjectPage = ({ data, id }) => {
     return (
         <>
             <Metadata title={ id }/>
-            <ProjectPageContent project={ data }/>
+            <ProjectPageContent project={ data } isAdmin={false}/>
         </>
     )
 }

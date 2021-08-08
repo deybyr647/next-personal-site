@@ -16,9 +16,10 @@ interface ProjectProps {
         tagline: string
         techStack: string[]
     }
+    isAdmin: boolean
 }
 
-const ProjectCard = ({ project }: ProjectProps) => {
+const ProjectCard = ({ project, isAdmin }: ProjectProps) => {
     const styling = {
         backgroundColor: "#f9f9fa",
     }
@@ -33,11 +34,19 @@ const ProjectCard = ({ project }: ProjectProps) => {
                     { project.shortDescription }
                 </Card.Text>
 
-                <Link href={`/projects/${ project.projectName }`}>
-                    <a className={`btn ${ styles.linkButton }`}>
-                        Learn More
-                    </a>
-                </Link>
+                {isAdmin ?
+                    <Link href={`/admin/${ project.projectName }`}>
+                        <a className={`btn ${ styles.linkButton }`}>
+                            Edit Project
+                        </a>
+                    </Link>
+                    :
+                    <Link href={`/projects/${ project.projectName }`}>
+                        <a className={`btn ${ styles.linkButton }`}>
+                            Learn More
+                        </a>
+                    </Link>
+                }
             </Card.Body>
         </Card>
     )
