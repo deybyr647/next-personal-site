@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { useEffect, useState, SyntheticEvent } from "react";
+import { useEffect, useState } from "react";
 
-import { Container, Row, Col, Card, Image, Form } from "react-bootstrap";
+import { Container, Row, Col, Card, Image, Form, Button } from "react-bootstrap";
 
 import Metadata from "../../components/Metadata";
 import Navigation from "../../components/Navigation";
@@ -9,7 +9,8 @@ import Footer from "../../components/Footer";
 import Jumbotron from "../../components/Jumbotron";
 
 import { ProjectProps } from "../../components/projects/ProjectCard";
-import db from "../../components/firebaseConfig";
+import { sendData } from "../../components/admin/api";
+import db from "../../components/admin/firebaseConfig";
 
 const EditProjectContent = ({ project }: ProjectProps) => {
     const styling = {
@@ -20,29 +21,51 @@ const EditProjectContent = ({ project }: ProjectProps) => {
     const [shortDesc, setShortDesc] = useState('');
     const [techstack, setTechstack] = useState([]);
     const [longDesc, setLongDesc] = useState('');
-    const [projectName, setProjectName] = useState('');
+    const [name, setName] = useState('');
     const [demolink, setDemoLink] = useState('');
-    const [githubLink, setGithubLink] = useState('');
+    const [ghLink, setGhLink] = useState('');
 
     const formChangehandler = (e) => {
         e.preventDefault();
         const { id, value } = e.currentTarget;
 
         if(id == "projectDesc") setLongDesc(value)
-        else if(id == "projectName") setProjectName(value)
+        else if(id == "projectName") setName(value)
         else if(id == "projectTechStack") setTechstack(value.split(','))
         else if(id == "projectShortDesc") setShortDesc(value)
-        else if(id == "projectGithub") setGithubLink(value)
+        else if(id == "projectGithub") setGhLink(value)
         else if(id == "demoLink") setDemoLink(value)
         else if(id == "projectTagline") setTagline(value)
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        (async () => {
+            const newData = {
+                githubLink: ghLink,
+                liveDemoLink: demolink,
+                longDescription: longDesc,
+                projectName: name,
+                shortDescription: shortDesc,
+                tagline: tagline,
+                techStack: techstack,
+                uid: project.uid,
+                exists: true,
+                logoSrc: project.logoSrc,
+                imgSrc: project.imgSrc
+            }
+
+            await sendData("/api/projects", newData);
+        })();
     }
 
     useEffect(() => {
         setTagline(project.tagline);
         setShortDesc(project.shortDescription);
         setDemoLink(project.liveDemoLink);
-        setGithubLink(project.githubLink);
-        setProjectName(project.projectName);
+        setGhLink(project.githubLink);
+        setName(project.projectName);
         setTechstack(project.techStack);
         setLongDesc(project.longDescription);
     }, [])
@@ -66,7 +89,7 @@ const EditProjectContent = ({ project }: ProjectProps) => {
                                     />
 
                                     <Card.Body>
-                                        <Card.Title>{ projectName } Bio</Card.Title>
+                                        <Card.Title>{ name } Bio</Card.Title>
                                         <Form>
                                             <Form.Group controlId={"projectLogo"} className={"mb-3"}>
                                                 <Form.Label>Project Logo Image</Form.Label>
@@ -107,7 +130,7 @@ const EditProjectContent = ({ project }: ProjectProps) => {
                                             <Form.Control
                                                 type={"text"}
                                                 placeholder={"Project Name..."}
-                                                value={ projectName }
+                                                value={ name }
                                                 onChange={formChangehandler}
                                             />
                                         </Form.Group>
@@ -122,6 +145,13 @@ const EditProjectContent = ({ project }: ProjectProps) => {
                                             />
                                         </Form.Group>
                                     </Form>
+
+                                    <Button
+                                        variant={"primary"}
+                                        onClick={e => onSubmit(e)}
+                                    >
+                                        Submit Changes
+                                    </Button>
                                 </Jumbotron>
                             </Col>
 
@@ -147,7 +177,7 @@ const EditProjectContent = ({ project }: ProjectProps) => {
                                                 <Form.Control
                                                     type={"text"}
                                                     placeholder={"GitHub Link..."}
-                                                    value={ githubLink }
+                                                    value={ ghLink }
                                                     as={"textarea"}
                                                     rows={5}
                                                     onChange={formChangehandler}
@@ -191,15 +221,6 @@ const EditProjectContent = ({ project }: ProjectProps) => {
     )
 }
 
-const ProjectPage = ({ data, id }) => {
-    return (
-        <>
-            <Metadata title={ id }/>
-            <EditProjectContent project={ data } isAdmin={false}/>
-        </>
-    )
-}
-
 export const getStaticPaths: GetStaticPaths = async (context) => {
     let routesOut = [];
 
@@ -231,14 +252,24 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const queryResult = await query.get();
 
     const project = queryResult.docs[0].data();
+    const uid = queryResult.docs[0].id;
 
     return {
         props: {
-            data: project,
+            data: {...project, uid},
             id: projectid,
         },
         revalidate: 30
     }
+}
+
+const ProjectPage = ({ data, id }) => {
+    return (
+        <>
+            <Metadata title={ id }/>
+            <EditProjectContent project={ data } isAdmin={false}/>
+        </>
+    )
 }
 
 export default ProjectPage;

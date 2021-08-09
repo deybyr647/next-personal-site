@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import db from "../../components/firebaseConfig";
+import db from "../../components/admin/firebaseConfig";
 
 const projects = async (req: NextApiRequest, res: NextApiResponse) => {
     let projectsRef = db.collection("projects");
@@ -21,9 +21,7 @@ const projects = async (req: NextApiRequest, res: NextApiResponse) => {
             }
 
             res.status(200).json(out);
-        }
-
-        catch (err) {
+        } catch (err) {
             if(err.message === "Cannot read property 'data' of undefined"){
 
                 let out = {
@@ -32,9 +30,7 @@ const projects = async (req: NextApiRequest, res: NextApiResponse) => {
                 }
 
                 res.status(404).json(out);
-            }
-
-            else {
+            } else {
 
                 let out = {
                     project: null,
@@ -46,7 +42,7 @@ const projects = async (req: NextApiRequest, res: NextApiResponse) => {
         }
     }
 
-    else {
+    else if(req.method === "GET") {
         let allProjects = await projectsRef.get();
 
         for(const project of allProjects.docs){
@@ -54,6 +50,27 @@ const projects = async (req: NextApiRequest, res: NextApiResponse) => {
         }
 
         res.status(200).json(outList);
+    }
+
+    if(req.method === "POST" && req.body.exists) {
+        const body = req.body
+        const uid = body.uid;
+        console.log(body);
+
+        const data = {
+            githubLink: body.githubLink,
+            liveDemoLink: body.liveDemoLink,
+            longDescription: body.longDescription,
+            projectName: body.projectName,
+            shortDescription: body.shortDescription,
+            tagline: body.tagline,
+            techStack: body.techStack,
+            imgSrc: body.imgSrc,
+            logoSrc: body.logoSrc
+        }
+
+        await db.collection("projects").doc(uid).set(data);
+        res.status(200).send({message: "POST Request Succeeded"});
     }
 }
 

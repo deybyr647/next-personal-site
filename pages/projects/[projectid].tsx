@@ -12,7 +12,7 @@ import TechStackCard from "../../components/projects/TechStackCard";
 
 import { strToComponent } from "../../components/projects/TechStackCard";
 import { ProjectProps } from "../../components/projects/ProjectCard";
-import db from "../../components/firebaseConfig";
+import db from "../../components/admin/firebaseConfig";
 
 const ProjectPageContent = ({ project }: ProjectProps) => {
     const styling = {
@@ -126,15 +126,6 @@ const ProjectPageContent = ({ project }: ProjectProps) => {
     )
 }
 
-const ProjectPage = ({ data, id }) => {
-    return (
-        <>
-            <Metadata title={ id }/>
-            <ProjectPageContent project={ data } isAdmin={false}/>
-        </>
-    )
-}
-
 export const getStaticPaths: GetStaticPaths = async (context) => {
     let routesOut = [];
 
@@ -166,14 +157,24 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const queryResult = await query.get();
 
     const project = queryResult.docs[0].data();
+    const uid = queryResult.docs[0].id;
 
     return {
         props: {
-            data: project,
+            data: {...project, uid},
             id: projectid,
         },
         revalidate: 30
     }
+}
+
+const ProjectPage = ({ data, id }) => {
+    return (
+        <>
+            <Metadata title={ id }/>
+            <ProjectPageContent project={ data } isAdmin={false}/>
+        </>
+    )
 }
 
 export default ProjectPage;
