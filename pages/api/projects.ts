@@ -4,74 +4,70 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import db from "../../components/admin/firebaseConfig";
 
 const projects = async (req: NextApiRequest, res: NextApiResponse) => {
-    let projectsRef = db.collection("projects");
-    let outList = [];
+  let projectsRef = db.collection("projects");
+  let outList = [];
 
-    if(req.query.name) {
-        let query = await projectsRef.where("projectName", "==", req.query.name);
-        let queryResult = await query.get();
+  if (req.query.name) {
+    let query = await projectsRef.where("projectName", "==", req.query.name);
+    let queryResult = await query.get();
 
-        try {
-            let data = queryResult.docs[0].data();
-            let uid = queryResult.docs[0].id;
+    try {
+      let data = queryResult.docs[0].data();
+      let uid = queryResult.docs[0].id;
 
-            let out = {
-                ...data,
-                uid
-            }
+      let out = {
+        ...data,
+        uid,
+      };
 
-            res.status(200).json(out);
-        } catch (err) {
-            if(err.message === "Cannot read property 'data' of undefined"){
+      res.status(200).json(out);
+    } catch (err) {
+      if (err.message === "Cannot read property 'data' of undefined") {
+        let out = {
+          project: null,
+          error: "Project Not Found!",
+        };
 
-                let out = {
-                    project: null,
-                    error: "Project Not Found!"
-                }
+        res.status(404).json(out);
+      } else {
+        let out = {
+          project: null,
+          error: err.message,
+        };
 
-                res.status(404).json(out);
-            } else {
+        res.status(500).json(out);
+      }
+    }
+  } else if (req.method === "GET") {
+    let allProjects = await projectsRef.get();
 
-                let out = {
-                    project: null,
-                    error: err.message
-                }
-
-                res.status(500).json(out);
-            }
-        }
+    for (const project of allProjects.docs) {
+      outList.push({ ...project.data(), id: project.id });
     }
 
-    else if(req.method === "GET") {
-        let allProjects = await projectsRef.get();
+    res.status(200).json(outList);
+  }
 
-        for(const project of allProjects.docs){
-            outList.push({ ...project.data(), id: project.id });
-        }
+  if (req.method === "PUT" && req.body.exists) {
+    const body = req.body;
+    const uid = body.uid;
+    console.log(body);
 
-        res.status(200).json(outList);
-    }
+    const data = {
+      githubLink: body.githubLink,
+      liveDemoLink: body.liveDemoLink,
+      longDescription: body.longDescription,
+      projectName: body.projectName,
+      shortDescription: body.shortDescription,
+      tagline: body.tagline,
+      techStack: body.techStack,
+      imgSrc: body.imgSrc,
+      logoSrc: body.logoSrc,
+    };
 
-    if(req.method === "POST" && req.body.exists) {
-        const body = req.body
-        const uid = body.uid;
-        console.log(body);
-
-        const data = {
-            githubLink: body.githubLink,
-            liveDemoLink: body.liveDemoLink,
-            longDescription: body.longDescription,
-            projectName: body.projectName,
-            shortDescription: body.shortDescription,
-            tagline: body.tagline,
-            techStack: body.techStack,
-            imgSrc: body.imgSrc,
-            logoSrc: body.logoSrc
-        }
-
-        await db.collection("projects").doc(uid).set(data);
-        res.status(200).send({message: "POST Request Succeeded"});
-    }
-}
+    await db.collection("projects").doc(uid).set(data);
+    res.status(200).send({ message: "POST Request Succeeded" });
+  }
+};
 
 export default projects;

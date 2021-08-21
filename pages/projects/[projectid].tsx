@@ -15,166 +15,173 @@ import { ProjectProps } from "../../components/projects/ProjectCard";
 import db from "../../components/admin/firebaseConfig";
 
 const ProjectPageContent = ({ project }: ProjectProps) => {
-    const styling = {
-        backgroundColor: "#f9f9fa",
-    }
+  const styling = {
+    backgroundColor: "#f9f9fa",
+  };
 
-    const [techStack, setTechStack] = useState([]);
+  const [techStack, setTechStack] = useState([]);
 
-    useEffect(() => {
-        setTechStack(project.techStack.map(strToComponent));
-    }, [])
+  useEffect(() => {
+    setTechStack(project.techStack.map(strToComponent));
+  }, []);
 
-    return (
-        <Container fluid>
-            <Row className={"p-0"}>
-                <Col xs={2} sm={1} className={"p-0"}>
-                    <Navigation/>
-                </Col>
+  return (
+    <Container fluid>
+      <Row className={"p-0"}>
+        <Col xs={2} sm={1} className={"p-0"}>
+          <Navigation />
+        </Col>
 
-                <Col xs={10} sm={11} className={"p-0 mt-4"}>
-                    <Container fluid>
-                        <Row className={"mb-4"}>
-                            <Col md={12} lg={4} xl={3}>
-                                <Card style={ styling } className={"mb-4"}>
-                                    <Card.Img
-                                        src={ project.logoSrc }
-                                        className={"rounded-circle my-2"}
-                                        variant={"top"}
-                                    />
+        <Col xs={10} sm={11} className={"p-0 mt-4"}>
+          <Container fluid>
+            <Row className={"mb-4"}>
+              <Col md={12} lg={4} xl={3}>
+                <Card style={styling} className={"mb-4"}>
+                  <Card.Img
+                    src={project.logoSrc}
+                    className={"rounded-circle my-2"}
+                    variant={"top"}
+                  />
 
-                                    <Card.Body>
-                                        <Card.Title>{ project.projectName } Bio</Card.Title>
+                  <Card.Body>
+                    <Card.Title>{project.projectName} Bio</Card.Title>
 
-                                        <Card.Text>
-                                            { project.longDescription }
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
+                    <Card.Text>{project.longDescription}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
 
-                            <Col md={12} lg={4} xl={6} className={"order-first order-lg-0"}>
-                                <Jumbotron className={"d-flex flex-column align-items-center"}>
-                                    <h2 className={"text-center"}>About { project.projectName }</h2>
+              <Col md={12} lg={4} xl={6} className={"order-first order-lg-0"}>
+                <Jumbotron className={"d-flex flex-column align-items-center"}>
+                  <h2 className={"text-center"}>About {project.projectName}</h2>
 
-                                    <Image
-                                        alt={ project.projectName }
-                                        className={"w-100 my-4"}
-                                        rounded
-                                        src={ project.imgSrc }
-                                    />
+                  <Image
+                    alt={project.projectName}
+                    className={"w-100 my-4"}
+                    rounded
+                    src={project.imgSrc}
+                  />
 
-                                    <h5 className={"text-center font-italic"}>{ project.tagline }</h5>
-                                </Jumbotron>
+                  <h5 className={"text-center font-italic"}>
+                    {project.tagline}
+                  </h5>
+                </Jumbotron>
 
-                                <Jumbotron>
-                                    <h5 className={"text-center pb-5"}>{ project.projectName } Was Developed With...</h5>
+                <Jumbotron>
+                  <h5 className={"text-center pb-5"}>
+                    {project.projectName} Was Developed With...
+                  </h5>
 
-                                    <TechStackCard techArr={ techStack }/>
-                                </Jumbotron>
-                            </Col>
+                  <TechStackCard techArr={techStack} />
+                </Jumbotron>
+              </Col>
 
-                            <Col md={12} lg={4} xl={3}>
+              <Col md={12} lg={4} xl={3}>
+                <Card style={styling} className={"mb-4"}>
+                  <Card.Img
+                    src={"/images/rocketLogo.png"}
+                    className={"w-75 rounded-circle mx-auto my-2"}
+                    alt={"Rocket Logo"}
+                  />
 
-                                <Card style={ styling } className={"mb-4"}>
-                                    <Card.Img
-                                        src={"/images/rocketLogo.png"}
-                                        className={"w-75 rounded-circle mx-auto my-2"}
-                                        alt={"Rocket Logo"}
-                                    />
+                  <Card.Body>
+                    <Card.Title>Live Site</Card.Title>
 
-                                    <Card.Body>
-                                        <Card.Title>Live Site</Card.Title>
+                    <Card.Text>
+                      See the {project.projectName} project live!
+                    </Card.Text>
 
-                                        <Card.Text>
-                                            See the { project.projectName } project live!
-                                        </Card.Text>
+                    <a
+                      className={`btn ${styles.linkButton}`}
+                      href={project.liveDemoLink}
+                    >
+                      See Live
+                    </a>
+                  </Card.Body>
+                </Card>
 
-                                        <a className={`btn ${ styles.linkButton }`} href={ project.liveDemoLink }>
-                                            See Live
-                                        </a>
-                                    </Card.Body>
-                                </Card>
+                <Card style={styling} className={"mb-4"}>
+                  <Card.Img
+                    src={"/images/gh-logo.png"}
+                    className={"w-75 rounded-circle mx-auto my-2"}
+                    alt={"GitHub Logo"}
+                  />
 
-                                <Card style={ styling } className={"mb-4"}>
-                                    <Card.Img
-                                        src={"/images/gh-logo.png"}
-                                        className={"w-75 rounded-circle mx-auto my-2"}
-                                        alt={"GitHub Logo"}
-                                    />
+                  <Card.Body>
+                    <Card.Title>GitHub</Card.Title>
 
-                                    <Card.Body>
-                                        <Card.Title>GitHub</Card.Title>
+                    <Card.Text>
+                      Checkout the {project.projectName} project on GitHub!
+                    </Card.Text>
 
-                                        <Card.Text>
-                                            Checkout the { project.projectName } project on GitHub!
-                                        </Card.Text>
-
-                                        <a className={`btn ${ styles.linkButton }`} href={ project.githubLink }>
-                                            See on GitHub
-                                        </a>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        </Row>
-                    </Container>
-
-                    <Footer/>
-                </Col>
+                    <a
+                      className={`btn ${styles.linkButton}`}
+                      href={project.githubLink}
+                    >
+                      See on GitHub
+                    </a>
+                  </Card.Body>
+                </Card>
+              </Col>
             </Row>
-        </Container>
-    )
-}
+          </Container>
+
+          <Footer />
+        </Col>
+      </Row>
+    </Container>
+  );
+};
 
 export const getStaticPaths: GetStaticPaths = async (context) => {
-    let routesOut = [];
+  let routesOut = [];
 
-    const projectsRef = db.collection("projects");
-    const allProjects = await projectsRef.get();
+  const projectsRef = db.collection("projects");
+  const allProjects = await projectsRef.get();
 
-    for(const project of allProjects.docs){
-        const { projectName } = project.data();
-        const route = {
-            params: {
-                projectid: projectName
-            }
-        }
+  for (const project of allProjects.docs) {
+    const { projectName } = project.data();
+    const route = {
+      params: {
+        projectid: projectName,
+      },
+    };
 
-        routesOut.push(route);
-    }
+    routesOut.push(route);
+  }
 
-    return {
-        paths: routesOut,
-        fallback: "blocking"
-    }
-}
+  return {
+    paths: routesOut,
+    fallback: "blocking",
+  };
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const { projectid } = context.params;
+  const { projectid } = context.params;
 
-    const projectsRef = db.collection("projects");
-    const query = await projectsRef.where("projectName", "==", projectid);
-    const queryResult = await query.get();
+  const projectsRef = db.collection("projects");
+  const query = await projectsRef.where("projectName", "==", projectid);
+  const queryResult = await query.get();
 
-    const project = queryResult.docs[0].data();
-    const uid = queryResult.docs[0].id;
+  const project = queryResult.docs[0].data();
+  const uid = queryResult.docs[0].id;
 
-    return {
-        props: {
-            data: {...project, uid},
-            id: projectid,
-        },
-        revalidate: 30
-    }
-}
+  return {
+    props: {
+      data: { ...project, uid },
+      id: projectid,
+    },
+    revalidate: 30,
+  };
+};
 
 const ProjectPage = ({ data, id }) => {
-    return (
-        <>
-            <Metadata title={ id }/>
-            <ProjectPageContent project={ data } isAdmin={false}/>
-        </>
-    )
-}
+  return (
+    <>
+      <Metadata title={id} />
+      <ProjectPageContent project={data} isAdmin={false} />
+    </>
+  );
+};
 
 export default ProjectPage;

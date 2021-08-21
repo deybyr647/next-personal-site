@@ -10,65 +10,63 @@ import Jumbotron from "../../components/Jumbotron";
 import ProjectCard from "../../components/projects/ProjectCard";
 
 const AdminContent = () => {
-    const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState([]);
 
-    useEffect(() => {
-        (async () => {
-            let req = await fetch("/api/projects");
-            let data = await req.json();
+  useEffect(() => {
+    (async () => {
+      let req = await fetch("/api/projects");
+      let data = await req.json();
 
-            setProjects(data);
-        })();
-    }, []);
+      setProjects(data);
+    })();
+  }, []);
 
-    return (
-        <Container fluid>
-            <Row className={"p-0"}>
-                <Col xs={2} sm={1} className={"p-0"}>
-                    <Navigation/>
-                </Col>
+  return (
+    <Container fluid>
+      <Row className={"p-0"}>
+        <Col xs={2} sm={1} className={"p-0"}>
+          <Navigation />
+        </Col>
 
-                <Col xs={10} sm={11} className={"p-0 mt-4"}>
-                    <Container fluid>
-                        <Row>
-                            <Col>
-                                <Jumbotron className={"text-center"}>
-                                    <h2>My Projects</h2>
-                                    <p className={"mt-4"}>
-                                        As the time passes, this list will only grow.
-                                        For now, here it is: my list of creations!
-                                    </p>
-                                </Jumbotron>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col>
-                                <CardColumns>
-                                    {
-                                        projects.map((p, ndx) =>
-                                            <ProjectCard project={p} key={ndx} isAdmin={true}/>
-                                        )
-                                    }
-                                </CardColumns>
-                            </Col>
-                        </Row>
-                    </Container>
-
-                    <Footer/>
-                </Col>
+        <Col xs={10} sm={11} className={"p-0 mt-4"}>
+          <Container fluid>
+            <Row>
+              <Col>
+                <Jumbotron className={"text-center"}>
+                  <h2>My Projects</h2>
+                  <p className={"mt-4"}>
+                    As the time passes, this list will only grow. For now, here
+                    it is: my list of creations!
+                  </p>
+                </Jumbotron>
+              </Col>
             </Row>
-        </Container>
-    )
-}
+
+            <Row>
+              <Col>
+                <CardColumns>
+                  {projects.map((p, ndx) => (
+                    <ProjectCard project={p} key={ndx} isAdmin={true} />
+                  ))}
+                </CardColumns>
+              </Col>
+            </Row>
+          </Container>
+
+          <Footer />
+        </Col>
+      </Row>
+    </Container>
+  );
+};
 
 const AdminPage = () => {
-    return (
-        <>
-            <Metadata title={"Admin Home"}/>
-            <AdminContent/>
-        </>
-    )
-}
+  return (
+    <>
+      <Metadata title={"Admin Home"} />
+      <AdminContent />
+    </>
+  );
+};
 
 export default AdminPage;
