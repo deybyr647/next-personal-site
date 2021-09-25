@@ -140,10 +140,10 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   const allProjects = await projectsRef.get();
 
   for (const project of allProjects.docs) {
-    const { projectName } = project.data();
+    const uid = project.id;
     const route = {
       params: {
-        projectid: projectName,
+        projectid: uid,
       },
     };
 
@@ -157,28 +157,26 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { projectid } = context.params;
+  const { projectid } = context.params as { projectid: string };
 
   const projectsRef = db.collection("projects");
-  const query = await projectsRef.where("projectName", "==", projectid);
-  const queryResult = await query.get();
+  const query = await projectsRef.doc(projectid).get();
 
-  const project = queryResult.docs[0].data();
-  const uid = queryResult.docs[0].id;
+  const projectData = query.data();
+  const uid = query.id;
 
   return {
     props: {
-      data: { ...project, uid },
-      id: projectid,
+      data: { ...projectData, uid },
     },
-    revalidate: 30,
+    revalidate: 60,
   };
 };
 
-const ProjectPage = ({ data, id }) => {
+const ProjectPage = ({ data }) => {
   return (
     <>
-      <Metadata title={id} />
+      <Metadata title={data.projectName} />
       <ProjectPageContent project={data} isAdmin={false} />
     </>
   );

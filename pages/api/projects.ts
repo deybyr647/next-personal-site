@@ -8,12 +8,13 @@ const projects = async (req: NextApiRequest, res: NextApiResponse) => {
   let outList = [];
 
   if (req.query.name) {
-    let query = await projectsRef.where("projectName", "==", req.query.name);
-    let queryResult = await query.get();
+    let query = await projectsRef
+      .where("projectName", "==", req.query.name)
+      .get();
 
     try {
-      let data = queryResult.docs[0].data();
-      let uid = queryResult.docs[0].id;
+      let data = query.docs[0].data();
+      let uid = query.docs[0].id;
 
       let out = {
         ...data,
@@ -42,7 +43,7 @@ const projects = async (req: NextApiRequest, res: NextApiResponse) => {
     let allProjects = await projectsRef.get();
 
     for (const project of allProjects.docs) {
-      outList.push({ ...project.data(), id: project.id });
+      outList.push({ ...project.data(), uid: project.id });
     }
 
     res.status(200).json(outList);

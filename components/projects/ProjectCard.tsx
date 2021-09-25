@@ -38,11 +38,11 @@ const ProjectCard = ({ project, isAdmin }: ProjectProps) => {
         <Card.Text>{project.shortDescription}</Card.Text>
 
         {isAdmin ? (
-          <Link href={`/admin/${project.projectName}`}>
+          <Link href={`/admin/${project.uid}`}>
             <a className={`btn ${styles.linkButton}`}>Edit Project</a>
           </Link>
         ) : (
-          <Link href={`/projects/${project.projectName}`}>
+          <Link href={`/projects/${project.uid}`}>
             <a className={`btn ${styles.linkButton}`}>Learn More</a>
           </Link>
         )}
