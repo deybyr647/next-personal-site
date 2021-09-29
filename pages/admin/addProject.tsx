@@ -19,6 +19,10 @@ import { sendData } from "../../components/admin/api";
 import db from "../../components/admin/firebaseConfig";
 
 const AddProjectContent = () => {
+  const styling = {
+    backgroundColor: "#f9f9fa",
+  };
+
   const [name, setName] = useState("");
   const [shortDesc, setShortDesc] = useState("");
 
@@ -40,38 +44,70 @@ const AddProjectContent = () => {
 
         <Col xs={10} sm={11} className={"p-0 mt-4"}>
           <Container fluid>
-            <Row>
-              <Col>
-                <Jumbotron className={"text-center"}>
-                  <h1>New Project</h1>
+            <Row className={"mb-4"}>
+              <Col md={12} lg={4} xl={3}>
+                <Card style={styling} className={"mb-4"}>
+                  <Card.Img
+                    src={""}
+                    alt={""}
+                    className={"rounded-circle my-2"}
+                    variant={"top"}
+                  />
+
+                  <Card.Body>
+                    <Card.Title>Project Bio</Card.Title>
+                    <Form>
+                      <Form.Group controlId={"projectLogo"}>
+                        <Form.Label>Project Logo</Form.Label>
+                        <Form.Control type={"file"} />
+                      </Form.Group>
+
+                      <Form.Group controlId={"projectDescription"}>
+                        <Form.Label>Project Description (short)</Form.Label>
+                        <Form.Control
+                          as={"textarea"}
+                          rows={5}
+                          className={"mb-3"}
+                        />
+
+                        <Form.Label>Project Description (long)</Form.Label>
+                        <Form.Control as={"textarea"} rows={15} />
+                      </Form.Group>
+                    </Form>
+                  </Card.Body>
+                </Card>
+              </Col>
+
+              <Col md={12} lg={4} xl={6} className={"order-first order-lg-0"}>
+                <Jumbotron className={"d-flex flex-column align-items-center"}>
+                  <Form>
+                    <Form.Group controlId={"projectImage"}>
+                      <Form.Label>Project Image</Form.Label>
+                      <Form.Control type={"file"} />
+                    </Form.Group>
+
+                    <Form.Group controlId={"projectName"}>
+                      <Form.Label>Project Name</Form.Label>
+                      <Form.Control
+                        type={"text"}
+                        placeholder={"Project Name..."}
+                      />
+                    </Form.Group>
+
+                    <Form.Group controlId={"projectTagline"}>
+                      <Form.Label>Project Tagline</Form.Label>
+                      <Form.Control
+                        type={"text"}
+                        placeholder={"Project Tagline..."}
+                      />
+                    </Form.Group>
+                  </Form>
+
+                  <Button variant={"primary"}>Add Project</Button>
                 </Jumbotron>
               </Col>
-            </Row>
 
-            <Row>
-              <Col>
-                <Form>
-                  <Form.Group controlId={"projectName"}>
-                    <Form.Label>Project Name</Form.Label>
-                    <Form.Control
-                      type={"text"}
-                      placeholder={"Enter Project Name..."}
-                      value={name}
-                      onChange={formChangeHandler}
-                    />
-                  </Form.Group>
-
-                  <Form.Group controlId={"shortDesc"}>
-                    <Form.Label>Short Description</Form.Label>
-                    <Form.Control
-                      type={"text"}
-                      placeholder={"Enter Short Description..."}
-                      value={shortDesc}
-                      onChange={formChangeHandler}
-                    />
-                  </Form.Group>
-                </Form>
-              </Col>
+              <Col md={12} lg={4} xl={3}></Col>
             </Row>
           </Container>
 

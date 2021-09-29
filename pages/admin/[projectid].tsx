@@ -133,7 +133,7 @@ const EditProjectContent = ({ project }: ProjectProps) => {
 
                   <Form>
                     <Form.Group controlId={"projectImage"}>
-                      <Form.Label>Project Logo Image</Form.Label>
+                      <Form.Label>Project Image</Form.Label>
                       <Form.Control type={"file"} />
                     </Form.Group>
 
