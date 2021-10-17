@@ -9,7 +9,7 @@ import Jumbotron from "../../components/Jumbotron";
 
 import ProjectCard from "../../components/projects/ProjectCard";
 
-const ProjectsContent = () => {
+const AdminContent = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const ProjectsContent = () => {
               <Col>
                 <CardColumns>
                   {projects.map((p, ndx) => (
-                    <ProjectCard project={p} key={ndx} isAdmin={false} />
+                    <ProjectCard project={p} key={ndx} isAdmin={true} />
                   ))}
                 </CardColumns>
               </Col>
@@ -60,13 +60,13 @@ const ProjectsContent = () => {
   );
 };
 
-const ProjectsPage = () => {
+const AdminPage = () => {
   return (
     <>
-      <Metadata title={"Projects"} />
-      <ProjectsContent />
+      <Metadata title={"Admin Home"} />
+      <AdminContent />
     </>
   );
 };
 
-export default ProjectsPage;
+export default AdminPage;

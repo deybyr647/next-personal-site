@@ -1,18 +1,29 @@
 import Head from "next/head";
 
 interface MetadataProps {
-    title: string
+  title: string;
 }
 
 const Metadata = ({ title }: MetadataProps) => {
-    return (
-        <Head>
-            <meta charSet={"utf-8"}/>
-            <meta name={"viewport"} content={"width=device-width, initial-scale=1, shrink-to-fit=no"}/>
-            <meta name={"description"} content={"Deyby Rodriguez's Personal Website. Full-Stack Web Developer"}/>
-            <meta name={"keywords"} content={"Deyby, Rodriguez, Antony, deybyr647, Web Developer, JavaScript, ReactJS, NodeJS, NextJS"}/>
-            <meta name={"author"} content={"Deyby Rodriguez"}/>
-            <meta name={"robots"} content={"index, follow"}/>
+  return (
+    <Head>
+      <meta charSet={"utf-8"} />
+      <meta
+        name={"viewport"}
+        content={"width=device-width, initial-scale=1, shrink-to-fit=no"}
+      />
+      <meta
+        name={"description"}
+        content={"Deyby Rodriguez's Personal Website. Full-Stack Web Developer"}
+      />
+      <meta
+        name={"keywords"}
+        content={
+          "Deyby, Rodriguez, Antony, deybyr647, Web Developer, JavaScript, ReactJS, NodeJS, NextJS"
+        }
+      />
+      <meta name={"author"} content={"Deyby Rodriguez"} />
+      <meta name={"robots"} content={"index, follow"} />
 
             <meta property={"og:title"} content={"Deyby Rodriguez"}/>
             <meta property={"og:type"} content={"website"}/>
@@ -31,10 +42,9 @@ const Metadata = ({ title }: MetadataProps) => {
             <meta name={"twitter:image"} content={"https://www.deybyr647.com/opengraph.png"}/>
             <meta name={"twitter:site"} content={"@deybyr647"}/>
             <meta name={"twitter:creator"} content={"@deybyr647"}/>
-
-            <title>{ title }</title>
-        </Head>
-    )
-}
+      <title>{title}</title>
+    </Head>
+  );
+};
 
 export default Metadata;
