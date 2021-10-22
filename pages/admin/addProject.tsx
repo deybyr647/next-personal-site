@@ -14,9 +14,7 @@ import Metadata from "../../components/Metadata";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 
-import { ProjectProps } from "../../components/projects/ProjectCard";
-import { sendData } from "../../components/admin/api";
-import db from "../../components/admin/firebaseConfig";
+import { sendNewProjectData } from "../../components/admin/api";
 
 const AddProjectContent = () => {
   const styling = {
@@ -44,6 +42,27 @@ const AddProjectContent = () => {
     else if (id == "projectTagline") setTagline(value);
 
     console.log(id, value);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    (async () => {
+      const newProjectData = {
+        githubLink: ghLink,
+        liveDemoLink: demolink,
+        longDescription: longDesc,
+        shortDescription: shortDesc,
+        techStack: techstack,
+        tagline: tagline,
+        logoSrc: "",
+        imgSrc: "",
+        projectName: name,
+        exists: false,
+      };
+
+      await sendNewProjectData("/api/projects", newProjectData);
+    })();
   };
 
   return (
@@ -131,7 +150,9 @@ const AddProjectContent = () => {
                     </Form.Group>
                   </Form>
 
-                  <Button variant={"primary"}>Add Project</Button>
+                  <Button variant={"primary"} onClick={onSubmit}>
+                    Add Project
+                  </Button>
                 </Jumbotron>
               </Col>
 

@@ -18,7 +18,7 @@ import Footer from "../../components/Footer";
 import Jumbotron from "../../components/Jumbotron";
 
 import { ProjectProps } from "../../components/projects/ProjectCard";
-import { sendData } from "../../components/admin/api";
+import { updateProjectData } from "../../components/admin/api";
 import db from "../../components/admin/firebaseConfig";
 
 const EditProjectContent = ({ project }: ProjectProps) => {
@@ -67,7 +67,7 @@ const EditProjectContent = ({ project }: ProjectProps) => {
         imgSrc: project.imgSrc,
       };
 
-      await sendData("/api/projects", newData);
+      await updateProjectData("/api/projects", newData);
       router.reload();
     })();
   };
