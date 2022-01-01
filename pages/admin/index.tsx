@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-
+import Link from "next/link";
+import { useSession, signIn } from "next-auth/react";
 import { Container, Row, Col, CardColumns } from "react-bootstrap";
 
 import Metadata from "../../components/Metadata";
@@ -8,6 +9,7 @@ import Footer from "../../components/Footer";
 import Jumbotron from "../../components/Jumbotron";
 
 import ProjectCard from "../../components/projects/ProjectCard";
+import styles from "../../styles/etc.module.css";
 
 const AdminContent = () => {
   const [projects, setProjects] = useState([]);
@@ -33,11 +35,12 @@ const AdminContent = () => {
             <Row>
               <Col>
                 <Jumbotron className={"text-center"}>
-                  <h2>My Projects</h2>
-                  <p className={"mt-4"}>
-                    As the time passes, this list will only grow. For now, here
-                    it is: my list of creations!
-                  </p>
+                  <h2>Project Control Panel</h2>
+                  <p className={"mt-4"}>Add, Edit & Delete Projects Here!</p>
+
+                  <Link href={"/admin/addProject"}>
+                    <a className={"mx-2 btn btn-primary"}>New Project</a>
+                  </Link>
                 </Jumbotron>
               </Col>
             </Row>
@@ -61,12 +64,35 @@ const AdminContent = () => {
 };
 
 const AdminPage = () => {
-  return (
-    <>
-      <Metadata title={"Admin Home"} />
-      <AdminContent />
-    </>
-  );
+  const { data: session } = useSession();
+
+  if (session) {
+    console.log("Session Object: \n", session);
+    return (
+      <>
+        <Metadata title={"Admin Home"} />
+        <AdminContent />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Container>
+          <Row>
+            <Col>
+              <h1>You're not signed in!</h1>
+              <p>Please Sign In</p>
+              <button
+                onClick={() => signIn("google", { callbackUrl: "/admin" })}
+              >
+                Sign In
+              </button>
+            </Col>
+          </Row>
+        </Container>
+      </>
+    );
+  }
 };
 
 export default AdminPage;

@@ -1,11 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 import styles from "../styles/etc.module.css";
 import { Navbar, Nav } from "react-bootstrap";
 import {
+  BsArrowRightSquare,
   BsPerson,
   BsFileEarmarkText,
+  BsPersonBadge,
   BsGrid,
   BsEnvelope,
 } from "react-icons/bs";
@@ -13,6 +16,7 @@ import {
 import logo from "../public/logo.svg";
 
 const Navigation = () => {
+  const { data: session } = useSession();
   return (
     <Navbar
       variant={"dark"}
@@ -62,6 +66,26 @@ const Navigation = () => {
             <span className={"d-none d-lg-inline"}>Contact</span>
           </a>
         </Link>
+
+        {session ? (
+          <a
+            className={"nav-link my-3"}
+            onClick={() => signOut({ callbackUrl: "/" })}
+          >
+            <BsArrowRightSquare size={"1.2em"} />
+            <br />
+            <span className={"d-none d-lg-inline"}>Exit</span>
+          </a>
+        ) : (
+          <a
+            className={"nav-link my-3"}
+            onClick={() => signIn("google", { callbackUrl: "/admin" })}
+          >
+            <BsPersonBadge size={"1.2em"} />
+            <br />
+            <span className={"d-none d-lg-inline"}>Admin</span>
+          </a>
+        )}
       </Nav>
     </Navbar>
   );
