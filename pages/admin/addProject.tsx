@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Container,
   Row,
   Col,
   Jumbotron,
   Card,
-  Image,
   Form,
   Button,
 } from "react-bootstrap";
@@ -14,7 +13,7 @@ import Metadata from "../../components/Metadata";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 
-import { sendNewProjectData } from "../../components/admin/api";
+import { addProject } from "../../components/admin/util";
 
 const AddProjectContent = () => {
   const styling = {
@@ -61,7 +60,7 @@ const AddProjectContent = () => {
         exists: false,
       };
 
-      await sendNewProjectData("/api/projects", newProjectData);
+      await addProject("/api/projects", newProjectData);
     })();
   };
 

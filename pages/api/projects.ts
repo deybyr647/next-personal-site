@@ -4,8 +4,8 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import db from "../../components/admin/firebaseConfig";
 
 const projects = async (req: NextApiRequest, res: NextApiResponse) => {
-  let projectsRef = db.collection("projects");
-  let outList = [];
+  const projectsRef = db.collection("projects");
+  const outList = [];
 
   if (req.method === "GET") {
     let allProjects = await projectsRef.get();
@@ -20,7 +20,6 @@ const projects = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "PUT" && req.body.exists) {
     const body = req.body;
     const uid = body.uid;
-    console.log(body);
 
     const data = {
       githubLink: body.githubLink,
@@ -40,7 +39,6 @@ const projects = async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (req.method === "POST" && !req.body.exists) {
     const body = req.body;
-    console.log(body);
 
     const data = {
       githubLink: body.githubLink,
