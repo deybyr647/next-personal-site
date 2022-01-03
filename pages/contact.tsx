@@ -2,8 +2,8 @@ import Image from "next/image";
 
 import { Container, Row, Col } from "react-bootstrap";
 import {
-  SiNextDotJs,
-  SiZeit,
+  SiNextdotjs,
+  SiVercel,
   SiBootstrap,
   SiTypescript,
   SiFirebase,
@@ -133,7 +133,7 @@ const ContactContent = () => {
                   <h3 className={"mb-4"}>Site Made Using...</h3>
 
                   <Container className={"d-flex justify-content-between"}>
-                    <SiNextDotJs
+                    <SiNextdotjs
                       size={"2em"}
                       title={"NextJS"}
                       className={styles.icon}
@@ -159,7 +159,7 @@ const ContactContent = () => {
                       title={"Firebase"}
                       className={styles.icon}
                     />
-                    <SiZeit
+                    <SiVercel
                       size={"2em"}
                       title={"Vercel"}
                       className={styles.icon}

@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import {
   SiBootstrap,
-  SiNextDotJs,
+  SiNextdotjs,
   SiTypescript,
   SiHtml5,
   SiCss3,
@@ -10,10 +10,10 @@ import {
 import {
   SiJavascript,
   SiReact,
-  SiNodeDotJs,
+  SiNodedotjs,
   SiPython,
   SiRust,
-  SiZeit,
+  SiVercel,
   SiFirebase,
 } from "react-icons/si";
 import { ReactNode } from "react";
@@ -38,15 +38,15 @@ const strToComponent = (str: string): ReactNode => {
   else if (str == "ReactJS")
     return <SiReact size={36} title={str} className={styles.icon} />;
   else if (str == "NextJS")
-    return <SiNextDotJs size={36} title={str} className={styles.icon} />;
+    return <SiNextdotjs size={36} title={str} className={styles.icon} />;
   else if (str == "NodeJS")
-    return <SiNodeDotJs size={36} title={str} className={styles.icon} />;
+    return <SiNodedotjs size={36} title={str} className={styles.icon} />;
   else if (str == "Python")
     return <SiPython size={36} title={str} className={styles.icon} />;
   else if (str == "Rust")
     return <SiRust size={36} title={str} className={styles.icon} />;
   else if (str == "Vercel")
-    return <SiZeit size={36} title={str} className={styles.icon} />;
+    return <SiVercel size={36} title={str} className={styles.icon} />;
   else if (str == "Firebase")
     return <SiFirebase size={36} title={str} className={styles.icon} />;
   else if (str == "Google Maps")
