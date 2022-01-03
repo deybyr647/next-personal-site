@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useSession, signIn } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { Container, Row, Col, CardColumns } from "react-bootstrap";
 
 import Metadata from "../../components/Metadata";
@@ -10,18 +10,26 @@ import Jumbotron from "../../components/Jumbotron";
 
 import ProjectCard from "../../components/projects/ProjectCard";
 import styles from "../../styles/etc.module.css";
+import { validateUser } from "../../components/admin/util";
 
 const AdminContent = () => {
+  const { data: session } = useSession();
   const [projects, setProjects] = useState([]);
+  const [authStatus, setAuthStatus] = useState(false);
 
   useEffect(() => {
     (async () => {
-      let req = await fetch("/api/projects");
-      let data = await req.json();
+      const req = await fetch("/api/projects");
+      const data = await req.json();
 
+      setAuthStatus(await validateUser(session?.user?.email));
       setProjects(data);
     })();
-  }, []);
+  }, [session?.user?.email]);
+
+  if (!authStatus) {
+    return null;
+  }
 
   return (
     <Container fluid>
@@ -64,35 +72,12 @@ const AdminContent = () => {
 };
 
 const AdminPage = () => {
-  const { data: session } = useSession();
-
-  if (session) {
-    console.log("Session Object: \n", session);
-    return (
-      <>
-        <Metadata title={"Admin Home"} />
-        <AdminContent />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <Container>
-          <Row>
-            <Col>
-              <h1>You're not signed in!</h1>
-              <p>Please Sign In</p>
-              <button
-                onClick={() => signIn("google", { callbackUrl: "/admin" })}
-              >
-                Sign In
-              </button>
-            </Col>
-          </Row>
-        </Container>
-      </>
-    );
-  }
+  return (
+    <>
+      <Metadata title={"Admin Home"} />
+      <AdminContent />
+    </>
+  );
 };
 
 export default AdminPage;

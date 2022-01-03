@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useSession, signIn, signOut } from "next-auth/react";
 
-import styles from "../styles/etc.module.css";
 import { Navbar, Nav } from "react-bootstrap";
 import {
   BsArrowRightSquare,
@@ -13,6 +12,7 @@ import {
   BsEnvelope,
 } from "react-icons/bs";
 
+import styles from "../styles/etc.module.css";
 import logo from "../public/logo.svg";
 
 const Navigation = () => {
