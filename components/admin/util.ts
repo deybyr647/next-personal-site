@@ -1,3 +1,5 @@
+import db from "../../components/admin/firebaseConfig";
+
 const updateProject = async (url: string, data: object) => {
   const res = await fetch(url, {
     method: "PUT",
@@ -32,10 +34,16 @@ const addProject = async (url: string, data: object) => {
   return res.json();
 };
 
-const validateUser = async (email: string | null | undefined) => {
-  const req = await fetch(`/api/users?email=${email}`);
-  const res = await req.json();
-  return res.authorized;
+const authorizeUser = async (email: string) => {
+  const usersCollection = db.collection("auth-users");
+  const allUsers = await usersCollection.get();
+
+  const isAuthorized: boolean = allUsers.docs.some((u) => {
+    const userDetails = u.data();
+    return userDetails.email === email;
+  });
+
+  return isAuthorized;
 };
 
-export { updateProject, addProject, validateUser };
+export { updateProject, addProject, authorizeUser };

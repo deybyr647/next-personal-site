@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { useSession, signOut } from "next-auth/react";
 
 import {
   Container,
@@ -22,6 +23,8 @@ import { updateProject } from "../../components/admin/util";
 import db from "../../components/admin/firebaseConfig";
 
 const EditProjectContent = ({ project }: ProjectProps) => {
+  const { data: session } = useSession();
+
   const styling = {
     backgroundColor: "#f9f9fa",
   };
@@ -81,6 +84,8 @@ const EditProjectContent = ({ project }: ProjectProps) => {
     setTechstack(project.techStack);
     setLongDesc(project.longDescription);
   }, []);
+
+  if (!session) return <div>You are not logged in!</div>;
 
   return (
     <Container fluid>

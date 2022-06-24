@@ -10,26 +10,21 @@ import Jumbotron from "../../components/Jumbotron";
 
 import ProjectCard from "../../components/projects/ProjectCard";
 import styles from "../../styles/etc.module.css";
-import { validateUser } from "../../components/admin/util";
 
 const AdminContent = () => {
   const { data: session } = useSession();
   const [projects, setProjects] = useState([]);
-  const [authStatus, setAuthStatus] = useState(false);
 
   useEffect(() => {
     (async () => {
       const req = await fetch("/api/projects");
       const data = await req.json();
 
-      setAuthStatus(await validateUser(session?.user?.email));
       setProjects(data);
     })();
-  }, [session?.user?.email]);
+  }, []);
 
-  if (!authStatus) {
-    return null;
-  }
+  if (!session) return <div>You are not logged in!</div>;
 
   return (
     <Container fluid>

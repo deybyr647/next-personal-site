@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 import {
   Container,
   Row,
@@ -16,6 +17,8 @@ import Footer from "../../components/Footer";
 import { addProject } from "../../components/admin/util";
 
 const AddProjectContent = () => {
+  const { data: session } = useSession();
+
   const styling = {
     backgroundColor: "#f9f9fa",
   };
@@ -63,6 +66,8 @@ const AddProjectContent = () => {
       await addProject("/api/projects", newProjectData);
     })();
   };
+
+  if (!session) return <div>You are not logged in!</div>;
 
   return (
     <Container fluid>
