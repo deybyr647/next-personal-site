@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { useSession, getSession } from "next-auth/react";
 import { Container, Row, Col, CardColumns } from "react-bootstrap";
+import { GetServerSideProps } from "next";
 
 import Metadata from "../../components/Metadata";
 import Navigation from "../../components/Navigation";
@@ -66,7 +67,17 @@ const AdminContent = () => {
   );
 };
 
-const AdminPage = () => {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await getSession(ctx);
+
+  return {
+    props: {
+      session,
+    },
+  };
+};
+
+const AdminPage = ({ session }) => {
   return (
     <>
       <Metadata title={"Admin Home"} />

@@ -1,7 +1,7 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps, GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useSession, signOut } from "next-auth/react";
+import { useSession, getSession } from "next-auth/react";
 
 import {
   Container,
@@ -246,31 +246,8 @@ const EditProjectContent = ({ project }: ProjectProps) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async (context) => {
-  let routesOut = [];
-
-  const projectsRef = db.collection("projects");
-  const allProjects = await projectsRef.get();
-
-  for (const project of allProjects.docs) {
-    const uid = project.id;
-    const route = {
-      params: {
-        projectid: uid,
-      },
-    };
-
-    routesOut.push(route);
-  }
-
-  return {
-    paths: routesOut,
-    fallback: "blocking",
-  };
-};
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { projectid } = context.params as { projectid: string };
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { projectid } = ctx.params as { projectid: string };
 
   const projectsRef = db.collection("projects");
   const query = await projectsRef.doc(projectid).get();
@@ -278,11 +255,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const projectData = query.data();
   const uid = query.id;
 
+  const session = await getSession(ctx);
+
   return {
     props: {
       data: { ...projectData, uid },
+      session,
     },
-    revalidate: 60,
   };
 };
 
