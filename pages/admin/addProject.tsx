@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { useSession, getSession } from "next-auth/react";
 import { GetServerSideProps } from "next";
 import {
@@ -19,6 +20,7 @@ import { addProject } from "../../components/admin/util";
 
 const AddProjectContent = () => {
   const { data: session } = useSession();
+  const router = useRouter();
 
   const styling = {
     backgroundColor: "#f9f9fa",
@@ -68,7 +70,11 @@ const AddProjectContent = () => {
     })();
   };
 
-  if (!session) return <div>You are not logged in!</div>;
+  useEffect(() => {
+    if (!session) router.push("/unauthorized");
+  }, [router, session]);
+
+  if (!session) return <div>Loading...</div>;
 
   return (
     <Container fluid>

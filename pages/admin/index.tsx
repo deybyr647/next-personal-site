@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useSession, getSession } from "next-auth/react";
 import { Container, Row, Col, CardColumns } from "react-bootstrap";
 import { GetServerSideProps } from "next";
@@ -15,17 +16,19 @@ import styles from "../../styles/etc.module.css";
 const AdminContent = () => {
   const { data: session } = useSession();
   const [projects, setProjects] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
+    if (!session) router.push("/unauthorized");
     (async () => {
       const req = await fetch("/api/projects");
       const data = await req.json();
 
       setProjects(data);
     })();
-  }, []);
+  }, [router, session]);
 
-  if (!session) return <div>You are not logged in!</div>;
+  if (!session) return <div>Loading...</div>;
 
   return (
     <Container fluid>

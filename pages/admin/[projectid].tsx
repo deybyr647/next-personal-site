@@ -76,6 +76,7 @@ const EditProjectContent = ({ project }: ProjectProps) => {
   };
 
   useEffect(() => {
+    if (!session) router.push("/unauthorized");
     setTagline(project.tagline);
     setShortDesc(project.shortDescription);
     setDemoLink(project.liveDemoLink);
@@ -83,9 +84,9 @@ const EditProjectContent = ({ project }: ProjectProps) => {
     setName(project.projectName);
     setTechstack(project.techStack);
     setLongDesc(project.longDescription);
-  }, []);
+  }, [router, session]);
 
-  if (!session) return <div>You are not logged in!</div>;
+  if (!session) return <div>Loading...</div>;
 
   return (
     <Container fluid>
