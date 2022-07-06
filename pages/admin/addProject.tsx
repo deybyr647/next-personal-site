@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useSession } from "next-auth/react";
+import { useSession, getSession } from "next-auth/react";
+import { GetServerSideProps } from "next";
 import {
   Container,
   Row,
@@ -222,7 +223,17 @@ const AddProjectContent = () => {
   );
 };
 
-const AddProjectPage = () => {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await getSession(ctx);
+
+  return {
+    props: {
+      session,
+    },
+  };
+};
+
+const AddProjectPage = ({ session }) => {
   return (
     <>
       <Metadata title={"Add Project"} />

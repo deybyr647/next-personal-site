@@ -36,7 +36,7 @@ const ProjectsContent = () => {
                   <h2>My Projects</h2>
                   <p className={"mt-4"}>
                     As the time passes, this list will only grow. For now, here
-                    it is: my list of creations!
+                    it my list of creations...
                   </p>
                 </Jumbotron>
               </Col>
