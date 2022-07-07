@@ -22,7 +22,7 @@ const Navigation = () => {
       variant={"dark"}
       className={`h-100 d-flex align-items-start justify-content-center ${styles.navigation}`}
     >
-      <Nav className={"d-flex text-center flex-column sticky-top"}>
+      <Nav className={"d-flex text-center flex-column"}>
         <Navbar.Brand className={"mx-0 p-0 my-3"}>
           <Link href={"/"}>
             <a>
@@ -68,14 +68,24 @@ const Navigation = () => {
         </Link>
 
         {session ? (
-          <a
-            className={"nav-link my-3"}
-            onClick={() => signOut({ callbackUrl: "/" })}
-          >
-            <BsArrowRightSquare size={"1.2em"} />
-            <br />
-            <span className={"d-none d-lg-inline"}>Exit</span>
-          </a>
+          <>
+            <Link href={"/admin"}>
+              <a className={"nav-link my-3"}>
+                <BsPersonBadge size={"1.2em"} />
+                <br />
+                <span className={"d-none d-lg-inline"}>Admin</span>
+              </a>
+            </Link>
+
+            <a
+              className={"nav-link my-3"}
+              onClick={() => signOut({ callbackUrl: "/" })}
+            >
+              <BsArrowRightSquare size={"1.2em"} />
+              <br />
+              <span className={"d-none d-lg-inline"}>Log Out</span>
+            </a>
+          </>
         ) : (
           <a
             className={"nav-link my-3"}

@@ -56,7 +56,7 @@ const EditProjectContent = ({ project }: ProjectProps) => {
     e.preventDefault();
 
     (async () => {
-      const newData = {
+      const newData: ProjectProps["project"] = {
         githubLink: ghLink,
         liveDemoLink: demolink,
         longDescription: longDesc,
@@ -77,6 +77,7 @@ const EditProjectContent = ({ project }: ProjectProps) => {
 
   useEffect(() => {
     if (!session) router.push("/unauthorized");
+
     setTagline(project.tagline);
     setShortDesc(project.shortDescription);
     setDemoLink(project.liveDemoLink);

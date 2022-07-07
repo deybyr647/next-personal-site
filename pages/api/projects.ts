@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
+import { ProjectProps } from "../../components/projects/ProjectCard";
 
 import db from "../../components/admin/firebaseConfig";
 
@@ -21,7 +22,7 @@ const projects = async (req: NextApiRequest, res: NextApiResponse) => {
     const body = req.body;
     const uid = body.uid;
 
-    const data = {
+    const data: ProjectProps["project"] = {
       githubLink: body.githubLink,
       liveDemoLink: body.liveDemoLink,
       longDescription: body.longDescription,
@@ -40,7 +41,7 @@ const projects = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST" && !req.body.exists) {
     const body = req.body;
 
-    const data = {
+    const data: ProjectProps["project"] = {
       githubLink: body.githubLink,
       liveDemoLink: body.liveDemoLink,
       longDescription: body.longDescription,

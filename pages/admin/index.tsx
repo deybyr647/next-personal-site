@@ -10,7 +10,9 @@ import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import Jumbotron from "../../components/Jumbotron";
 
-import ProjectCard from "../../components/projects/ProjectCard";
+import ProjectCard, {
+  ProjectProps,
+} from "../../components/projects/ProjectCard";
 import styles from "../../styles/etc.module.css";
 
 const AdminContent = () => {
@@ -46,7 +48,9 @@ const AdminContent = () => {
                   <p className={"mt-4"}>Add, Edit & Delete Projects Here!</p>
 
                   <Link href={"/admin/addProject"}>
-                    <a className={"mx-2 btn btn-primary"}>New Project</a>
+                    <a className={`mx-2 btn ${styles.linkButton}`}>
+                      New Project
+                    </a>
                   </Link>
                 </Jumbotron>
               </Col>
@@ -55,7 +59,7 @@ const AdminContent = () => {
             <Row>
               <Col>
                 <CardColumns>
-                  {projects.map((p, ndx) => (
+                  {projects.map((p: ProjectProps["project"], ndx: number) => (
                     <ProjectCard project={p} key={ndx} isAdmin={true} />
                   ))}
                 </CardColumns>
