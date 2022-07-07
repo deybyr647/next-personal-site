@@ -65,13 +65,12 @@ const EditProjectContent = ({ project }: ProjectProps) => {
         tagline: tagline,
         techStack: techstack,
         uid: project.uid,
-        exists: true,
         logoSrc: project.logoSrc,
         imgSrc: project.imgSrc,
       };
 
       await updateProject("/api/projects", newData);
-      router.reload();
+      router.push("/admin");
     })();
   };
 

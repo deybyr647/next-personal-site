@@ -17,6 +17,7 @@ import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 
 import { addProject } from "../../components/admin/util";
+import { ProjectProps } from "../../components/projects/ProjectCard";
 
 const AddProjectContent = () => {
   const { data: session } = useSession();
@@ -53,7 +54,7 @@ const AddProjectContent = () => {
     e.preventDefault();
 
     (async () => {
-      const newProjectData = {
+      const newProjectData: ProjectProps["project"] = {
         githubLink: ghLink,
         liveDemoLink: demolink,
         longDescription: longDesc,
@@ -63,10 +64,10 @@ const AddProjectContent = () => {
         logoSrc: "",
         imgSrc: "",
         projectName: name,
-        exists: false,
       };
 
       await addProject("/api/projects", newProjectData);
+      router.push("/admin");
     })();
   };
 

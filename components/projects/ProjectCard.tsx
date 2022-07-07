@@ -16,7 +16,6 @@ interface ProjectProps {
     tagline: string;
     techStack: string[];
     uid?: string;
-    exists?: boolean;
   };
   isAdmin: boolean;
 }
