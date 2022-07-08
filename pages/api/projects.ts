@@ -5,11 +5,11 @@ import { authorizeUser } from "../../components/admin/util";
 import { ProjectProps } from "../../components/projects/ProjectCard";
 
 import db from "../../components/admin/firebaseConfig";
+import { Session } from "next-auth";
 
 const projects = async (req: NextApiRequest, res: NextApiResponse) => {
-  const session = await getSession({ req });
-  const { user } = session;
-  const isAuth = await authorizeUser(user.email);
+  const session: Session = await getSession({ req });
+  const isAuth = await authorizeUser(session?.user?.email);
 
   const projectsRef = db.collection("projects");
 
