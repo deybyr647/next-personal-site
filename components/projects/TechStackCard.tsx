@@ -18,7 +18,7 @@ import {
 } from "react-icons/si";
 import { ReactNode } from "react";
 
-import styles from "../../styles/etc.module.css";
+import styles from "../../styles/etc.module.scss";
 
 interface TechStackCardProps {
   techArr: Array<ReactNode>;
