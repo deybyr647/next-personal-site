@@ -13,7 +13,7 @@ import Jumbotron from "../../components/Jumbotron";
 import ProjectCard, {
   ProjectProps,
 } from "../../components/projects/ProjectCard";
-import styles from "../../styles/etc.module.css";
+import styles from "../../styles/etc.module.scss";
 
 const AdminContent = () => {
   const { data: session } = useSession();

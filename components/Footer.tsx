@@ -1,5 +1,5 @@
 import { Navbar, Nav } from "react-bootstrap";
-import styles from "../styles/etc.module.css";
+import styles from "../styles/etc.module.scss";
 
 const Footer = () => (
   <Navbar

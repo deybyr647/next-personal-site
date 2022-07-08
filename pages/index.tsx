@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { Container, Row, Col } from "react-bootstrap";
-import styles from "../styles/etc.module.css";
+import styles from "../styles/etc.module.scss";
 
 import Metadata from "../components/Metadata";
 import Navigation from "../components/Navigation";

@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps, GetServerSideProps } from "next";
+import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useSession, getSession } from "next-auth/react";

@@ -1,6 +1,8 @@
+@import "custom";
+
 .navigation,
 .footer {
-  background-color: #1b4965;
+  background-color: $indigoDye;
 }
 
 .cardToggle:hover {
@@ -8,13 +10,13 @@
 }
 
 .linkButton {
-  color: #fff;
-  background-color: #5fa8d3;
+  color: $white;
+  background-color: $carolinaBlue;
 }
 
 .linkButton:hover {
   color: #fff;
-  background-color: #358dc0;
+  background-color: $blueNCS;
 }
 
 .icon {
@@ -22,7 +24,7 @@
 }
 
 .icon:hover {
-  color: #358dc0;
+  color: $blueNCS;
 }
 
 .logo {

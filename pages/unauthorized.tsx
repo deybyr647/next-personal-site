@@ -3,7 +3,7 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-import styles from "../styles/etc.module.css";
+import styles from "../styles/etc.module.scss";
 
 import Metadata from "../components/Metadata";
 import Navigation from "../components/Navigation";

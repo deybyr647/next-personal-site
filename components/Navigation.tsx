@@ -12,7 +12,7 @@ import {
   BsEnvelope,
 } from "react-icons/bs";
 
-import styles from "../styles/etc.module.css";
+import styles from "../styles/etc.module.scss";
 import logo from "../public/logo.svg";
 
 const Navigation = () => {

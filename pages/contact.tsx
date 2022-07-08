@@ -9,7 +9,7 @@ import {
   SiFirebase,
 } from "react-icons/si";
 import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
-import styles from "../styles/etc.module.css";
+import styles from "../styles/etc.module.scss";
 
 import Metadata from "../components/Metadata";
 import Navigation from "../components/Navigation";

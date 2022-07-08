@@ -2,8 +2,7 @@ import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/globals.css";
+import "../styles/globals.scss";
 
 const MyApp = ({
   Component,

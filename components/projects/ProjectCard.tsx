@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Card } from "react-bootstrap";
 
-import styles from "../../styles/etc.module.css";
+import styles from "../../styles/etc.module.scss";
 
 interface ProjectProps {
   project: {
