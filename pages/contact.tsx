@@ -130,7 +130,7 @@ const ContactContent = () => {
                 </Jumbotron>
 
                 <Jumbotron>
-                  <h3 className={"mb-4"}>Site Made Using...</h3>
+                  <h3 className={"mb-4"}>Site Made With...</h3>
 
                   <Container className={"d-flex justify-content-between"}>
                     <SiNextdotjs
@@ -169,8 +169,6 @@ const ContactContent = () => {
               </Col>
             </Row>
           </Container>
-
-          <Footer />
         </Col>
       </Row>
     </Container>
@@ -182,6 +180,7 @@ const ContactPage = () => {
     <>
       <Metadata title={"Contact"} />
       <ContactContent />
+      <Footer />
     </>
   );
 };

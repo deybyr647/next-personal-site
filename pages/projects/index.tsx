@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { FooterVariant } from "../../components/Footer";
 import { Container, Row, Col, CardColumns } from "react-bootstrap";
 
 import Metadata from "../../components/Metadata";
@@ -52,8 +52,6 @@ const ProjectsContent = () => {
               </Col>
             </Row>
           </Container>
-
-          <Footer />
         </Col>
       </Row>
     </Container>
@@ -65,6 +63,7 @@ const ProjectsPage = () => {
     <>
       <Metadata title={"Projects"} />
       <ProjectsContent />
+      <Footer variant={FooterVariant.Fixed} />
     </>
   );
 };

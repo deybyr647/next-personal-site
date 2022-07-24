@@ -72,8 +72,6 @@ const UnauthorizedContent = () => {
               <Col md={12} lg={3}></Col>
             </Row>
           </Container>
-
-          <Footer />
         </Col>
       </Row>
     </Container>
@@ -85,6 +83,7 @@ const UnauthorizedPage = () => {
     <>
       <Metadata title={"Unauthorized"} />
       <UnauthorizedContent />
+      <Footer />
     </>
   );
 };

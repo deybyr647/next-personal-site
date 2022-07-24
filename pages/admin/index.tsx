@@ -66,8 +66,6 @@ const AdminContent = () => {
               </Col>
             </Row>
           </Container>
-
-          <Footer />
         </Col>
       </Row>
     </Container>
@@ -89,6 +87,7 @@ const AdminPage = ({ session }) => {
     <>
       <Metadata title={"Admin Home"} />
       <AdminContent />
+      <Footer />
     </>
   );
 };

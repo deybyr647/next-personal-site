@@ -26,7 +26,7 @@ const Navigation = () => {
         <Navbar.Brand className={"mx-0 p-0 my-3"}>
           <Link href={"/"}>
             <a>
-              <Image src={logo} className={styles.logo} alt={"Logo"} />
+              <Image src={logo} alt={"Logo"} />
             </a>
           </Link>
         </Navbar.Brand>
@@ -56,6 +56,18 @@ const Navigation = () => {
             <BsGrid size={"1.2em"} />
             <br />
             <span className={"d-none d-lg-inline"}>Projects</span>
+          </a>
+        </Link>
+
+        <Link href={"/Activities.pdf"}>
+          <a
+            className={"nav-link my-3"}
+            rel={"noopener noreferrer"}
+            target={"_blank"}
+          >
+            <BsFileEarmarkText size={"1.2em"} />
+            <br />
+            <span className={"d-none d-lg-inline"}>Activities</span>
           </a>
         </Link>
 

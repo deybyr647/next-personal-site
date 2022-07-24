@@ -1,4 +1,8 @@
-@import "custom";
+$columbiaBlue: #cae9ff;
+$indigoDye: #1b4965;
+$carolinaBlue: #5fa8d3;
+$blueNCS: #358dc0;
+$white: #ffffff;
 
 .navigation,
 .footer {
@@ -25,12 +29,4 @@
 
 .icon:hover {
   color: $blueNCS;
-}
-
-.logo {
-  transition: all 500ms ease-out;
-}
-
-.logo:hover {
-  transform: rotateY(180deg);
 }

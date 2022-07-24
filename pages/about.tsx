@@ -304,8 +304,6 @@ const AboutContent = () => {
               </Col>
             </Row>
           </Container>
-
-          <Footer />
         </Col>
       </Row>
     </Container>
@@ -317,6 +315,7 @@ const AboutPage = () => {
     <>
       <Metadata title={"About"} />
       <AboutContent />
+      <Footer />
     </>
   );
 };

@@ -239,8 +239,6 @@ const EditProjectContent = ({ project }: ProjectProps) => {
               </Col>
             </Row>
           </Container>
-
-          <Footer />
         </Col>
       </Row>
     </Container>
@@ -271,6 +269,7 @@ const ProjectPage = ({ data }) => {
     <>
       <Metadata title={data.projectName} />
       <EditProjectContent project={data} isAdmin={false} />
+      <Footer />
     </>
   );
 };

@@ -66,7 +66,7 @@ const LandingContent = () => {
                   />
 
                   <Container className={"text-center mt-4"}>
-                    <h2>Deyby Rodriguez's</h2>
+                    <h2>Deyby Rodriguez</h2>
                     <h3 className={"font-italic"}>Personal Website</h3>
                   </Container>
 
@@ -119,8 +119,6 @@ const LandingContent = () => {
               </Col>
             </Row>
           </Container>
-
-          <Footer />
         </Col>
       </Row>
     </Container>
@@ -132,6 +130,7 @@ const LandingPage = () => {
     <>
       <Metadata title={"Deyby Rodriguez"} />
       <LandingContent />
+      <Footer />
     </>
   );
 };

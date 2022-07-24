@@ -222,8 +222,6 @@ const AddProjectContent = () => {
               </Col>
             </Row>
           </Container>
-
-          <Footer />
         </Col>
       </Row>
     </Container>
@@ -245,6 +243,7 @@ const AddProjectPage = ({ session }) => {
     <>
       <Metadata title={"Add Project"} />
       <AddProjectContent />
+      <Footer />
     </>
   );
 };

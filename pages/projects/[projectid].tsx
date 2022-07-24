@@ -125,8 +125,6 @@ const ProjectPageContent = ({ project }: ProjectProps) => {
               </Col>
             </Row>
           </Container>
-
-          <Footer />
         </Col>
       </Row>
     </Container>
@@ -178,6 +176,7 @@ const ProjectPage = ({ data }) => {
     <>
       <Metadata title={data.projectName} />
       <ProjectPageContent project={data} isAdmin={false} />
+      <Footer />
     </>
   );
 };
