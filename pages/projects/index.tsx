@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { FooterVariant } from "../../components/Footer";
 import { Container, Row, Col, CardColumns } from "react-bootstrap";
 
 import Metadata from "../../components/Metadata";
@@ -36,7 +36,7 @@ const ProjectsContent = () => {
                   <h2>My Projects</h2>
                   <p className={"mt-4"}>
                     As the time passes, this list will only grow. For now, here
-                    it is: my list of creations!
+                    it my list of creations...
                   </p>
                 </Jumbotron>
               </Col>
@@ -52,8 +52,6 @@ const ProjectsContent = () => {
               </Col>
             </Row>
           </Container>
-
-          <Footer />
         </Col>
       </Row>
     </Container>
@@ -65,6 +63,7 @@ const ProjectsPage = () => {
     <>
       <Metadata title={"Projects"} />
       <ProjectsContent />
+      <Footer variant={FooterVariant.Fixed} />
     </>
   );
 };

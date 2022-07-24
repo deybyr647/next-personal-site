@@ -1,10 +1,21 @@
 import { Navbar, Nav } from "react-bootstrap";
-import styles from "../styles/etc.module.css";
+import styles from "../styles/etc.module.scss";
 
-const Footer = () => (
+enum FooterVariant {
+  Fixed = "fixed-bottom",
+  Sticky = "sticky-bottom",
+}
+
+interface FooterProps {
+  variant?: FooterVariant;
+}
+
+const Footer = ({ variant }: FooterProps) => (
   <Navbar
     variant={"dark"}
-    className={`sticky-bottom justify-content-center ${styles.footer}`}
+    className={`${variant || FooterVariant.Sticky} justify-content-center ${
+      styles.footer
+    }`}
   >
     <Nav>
       <Nav.Link
@@ -18,4 +29,5 @@ const Footer = () => (
   </Navbar>
 );
 
+export { type FooterProps, FooterVariant };
 export default Footer;

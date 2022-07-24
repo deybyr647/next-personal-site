@@ -1,10 +1,14 @@
 import type { AppProps } from "next/app";
+import { SessionProvider } from "next-auth/react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/globals.css";
+import "../styles/globals.scss";
 
-const MyApp = ({ Component, pageProps, router }: AppProps) => {
+const MyApp = ({
+  Component,
+  pageProps: { session, ...pageProps },
+  router,
+}: AppProps) => {
   const pageTransition = {
     type: "spring",
     damping: 10,
@@ -22,7 +26,9 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
           initial={{ x: 0, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
         >
-          <Component {...pageProps} key={router.pathname} />
+          <SessionProvider session={session}>
+            <Component {...pageProps} key={router.pathname} />
+          </SessionProvider>
         </motion.div>
       </div>
     </AnimatePresence>

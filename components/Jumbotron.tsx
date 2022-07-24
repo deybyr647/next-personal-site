@@ -1,4 +1,4 @@
-const Jumbotron = ({ children, ...rest }) => {
+const Jumbotron = ({ children, ...props }) => {
   const styling = {
     padding: "2rem 1rem",
     marginBottom: "2rem",
@@ -7,7 +7,7 @@ const Jumbotron = ({ children, ...rest }) => {
   };
 
   return (
-    <div style={styling} {...rest}>
+    <div style={styling} {...props}>
       {children}
     </div>
   );

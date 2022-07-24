@@ -1,6 +1,7 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { useSession, getSession } from "next-auth/react";
 
 import {
   Container,
@@ -18,10 +19,12 @@ import Footer from "../../components/Footer";
 import Jumbotron from "../../components/Jumbotron";
 
 import { ProjectProps } from "../../components/projects/ProjectCard";
-import { sendData } from "../../components/admin/api";
+import { updateProject } from "../../components/admin/util";
 import db from "../../components/admin/firebaseConfig";
 
 const EditProjectContent = ({ project }: ProjectProps) => {
+  const { data: session } = useSession();
+
   const styling = {
     backgroundColor: "#f9f9fa",
   };
@@ -53,7 +56,7 @@ const EditProjectContent = ({ project }: ProjectProps) => {
     e.preventDefault();
 
     (async () => {
-      const newData = {
+      const newData: ProjectProps["project"] = {
         githubLink: ghLink,
         liveDemoLink: demolink,
         longDescription: longDesc,
@@ -62,17 +65,18 @@ const EditProjectContent = ({ project }: ProjectProps) => {
         tagline: tagline,
         techStack: techstack,
         uid: project.uid,
-        exists: true,
         logoSrc: project.logoSrc,
         imgSrc: project.imgSrc,
       };
 
-      await sendData("/api/projects", newData);
-      router.reload();
+      await updateProject("/api/projects", newData);
+      router.push("/admin");
     })();
   };
 
   useEffect(() => {
+    if (!session) router.push("/unauthorized");
+
     setTagline(project.tagline);
     setShortDesc(project.shortDescription);
     setDemoLink(project.liveDemoLink);
@@ -80,7 +84,9 @@ const EditProjectContent = ({ project }: ProjectProps) => {
     setName(project.projectName);
     setTechstack(project.techStack);
     setLongDesc(project.longDescription);
-  }, []);
+  }, [router, session]);
+
+  if (!session) return <div>Loading...</div>;
 
   return (
     <Container fluid>
@@ -233,39 +239,14 @@ const EditProjectContent = ({ project }: ProjectProps) => {
               </Col>
             </Row>
           </Container>
-
-          <Footer />
         </Col>
       </Row>
     </Container>
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async (context) => {
-  let routesOut = [];
-
-  const projectsRef = db.collection("projects");
-  const allProjects = await projectsRef.get();
-
-  for (const project of allProjects.docs) {
-    const uid = project.id;
-    const route = {
-      params: {
-        projectid: uid,
-      },
-    };
-
-    routesOut.push(route);
-  }
-
-  return {
-    paths: routesOut,
-    fallback: "blocking",
-  };
-};
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { projectid } = context.params as { projectid: string };
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { projectid } = ctx.params as { projectid: string };
 
   const projectsRef = db.collection("projects");
   const query = await projectsRef.doc(projectid).get();
@@ -273,11 +254,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const projectData = query.data();
   const uid = query.id;
 
+  const session = await getSession(ctx);
+
   return {
     props: {
       data: { ...projectData, uid },
+      session,
     },
-    revalidate: 60,
   };
 };
 
@@ -286,6 +269,7 @@ const ProjectPage = ({ data }) => {
     <>
       <Metadata title={data.projectName} />
       <EditProjectContent project={data} isAdmin={false} />
+      <Footer />
     </>
   );
 };

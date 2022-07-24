@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { useEffect, useState } from "react";
 
 import { Container, Row, Col, Card, Image } from "react-bootstrap";
-import styles from "../../styles/etc.module.css";
+import styles from "../../styles/etc.module.scss";
 
 import Metadata from "../../components/Metadata";
 import Navigation from "../../components/Navigation";
@@ -125,8 +125,6 @@ const ProjectPageContent = ({ project }: ProjectProps) => {
               </Col>
             </Row>
           </Container>
-
-          <Footer />
         </Col>
       </Row>
     </Container>
@@ -178,6 +176,7 @@ const ProjectPage = ({ data }) => {
     <>
       <Metadata title={data.projectName} />
       <ProjectPageContent project={data} isAdmin={false} />
+      <Footer />
     </>
   );
 };

@@ -4,7 +4,7 @@ import { useState, ReactNode, SyntheticEvent } from "react";
 import { Card, Accordion } from "react-bootstrap";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
-import styles from "../../styles/etc.module.css";
+import styles from "../../styles/etc.module.scss";
 
 interface CollapsibleCardProps {
   children: ReactNode;

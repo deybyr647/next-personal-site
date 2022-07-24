@@ -2,14 +2,14 @@ import Image from "next/image";
 
 import { Container, Row, Col } from "react-bootstrap";
 import {
-  SiNextDotJs,
-  SiZeit,
+  SiNextdotjs,
+  SiVercel,
   SiBootstrap,
   SiTypescript,
   SiFirebase,
 } from "react-icons/si";
 import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
-import styles from "../styles/etc.module.css";
+import styles from "../styles/etc.module.scss";
 
 import Metadata from "../components/Metadata";
 import Navigation from "../components/Navigation";
@@ -130,10 +130,10 @@ const ContactContent = () => {
                 </Jumbotron>
 
                 <Jumbotron>
-                  <h3 className={"mb-4"}>Site Made Using...</h3>
+                  <h3 className={"mb-4"}>Site Made With...</h3>
 
                   <Container className={"d-flex justify-content-between"}>
-                    <SiNextDotJs
+                    <SiNextdotjs
                       size={"2em"}
                       title={"NextJS"}
                       className={styles.icon}
@@ -159,7 +159,7 @@ const ContactContent = () => {
                       title={"Firebase"}
                       className={styles.icon}
                     />
-                    <SiZeit
+                    <SiVercel
                       size={"2em"}
                       title={"Vercel"}
                       className={styles.icon}
@@ -169,8 +169,6 @@ const ContactContent = () => {
               </Col>
             </Row>
           </Container>
-
-          <Footer />
         </Col>
       </Row>
     </Container>
@@ -182,6 +180,7 @@ const ContactPage = () => {
     <>
       <Metadata title={"Contact"} />
       <ContactContent />
+      <Footer />
     </>
   );
 };

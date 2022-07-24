@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { useSession, getSession } from "next-auth/react";
+import { GetServerSideProps } from "next";
 import {
   Container,
   Row,
   Col,
   Jumbotron,
   Card,
-  Image,
   Form,
   Button,
 } from "react-bootstrap";
@@ -14,11 +16,13 @@ import Metadata from "../../components/Metadata";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 
+import { addProject } from "../../components/admin/util";
 import { ProjectProps } from "../../components/projects/ProjectCard";
-import { sendData } from "../../components/admin/api";
-import db from "../../components/admin/firebaseConfig";
 
 const AddProjectContent = () => {
+  const { data: session } = useSession();
+  const router = useRouter();
+
   const styling = {
     backgroundColor: "#f9f9fa",
   };
@@ -45,6 +49,33 @@ const AddProjectContent = () => {
 
     console.log(id, value);
   };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    (async () => {
+      const newProjectData: ProjectProps["project"] = {
+        githubLink: ghLink,
+        liveDemoLink: demolink,
+        longDescription: longDesc,
+        shortDescription: shortDesc,
+        techStack: techstack,
+        tagline: tagline,
+        logoSrc: "",
+        imgSrc: "",
+        projectName: name,
+      };
+
+      await addProject("/api/projects", newProjectData);
+      router.push("/admin");
+    })();
+  };
+
+  useEffect(() => {
+    if (!session) router.push("/unauthorized");
+  }, [router, session]);
+
+  if (!session) return <div>Loading...</div>;
 
   return (
     <Container fluid>
@@ -131,7 +162,9 @@ const AddProjectContent = () => {
                     </Form.Group>
                   </Form>
 
-                  <Button variant={"primary"}>Add Project</Button>
+                  <Button variant={"primary"} onClick={onSubmit}>
+                    Add Project
+                  </Button>
                 </Jumbotron>
               </Col>
 
@@ -189,19 +222,28 @@ const AddProjectContent = () => {
               </Col>
             </Row>
           </Container>
-
-          <Footer />
         </Col>
       </Row>
     </Container>
   );
 };
 
-const AddProjectPage = () => {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await getSession(ctx);
+
+  return {
+    props: {
+      session,
+    },
+  };
+};
+
+const AddProjectPage = ({ session }) => {
   return (
     <>
       <Metadata title={"Add Project"} />
       <AddProjectContent />
+      <Footer />
     </>
   );
 };

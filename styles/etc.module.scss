@@ -1,0 +1,32 @@
+$columbiaBlue: #cae9ff;
+$indigoDye: #1b4965;
+$carolinaBlue: #5fa8d3;
+$blueNCS: #358dc0;
+$white: #ffffff;
+
+.navigation,
+.footer {
+  background-color: $indigoDye;
+}
+
+.cardToggle:hover {
+  cursor: pointer;
+}
+
+.linkButton {
+  color: $white;
+  background-color: $carolinaBlue;
+}
+
+.linkButton:hover {
+  color: #fff;
+  background-color: $blueNCS;
+}
+
+.icon {
+  transition: all 300ms ease-out;
+}
+
+.icon:hover {
+  color: $blueNCS;
+}

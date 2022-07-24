@@ -1,25 +1,36 @@
 import { useState, useEffect } from "react";
-
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useSession, getSession } from "next-auth/react";
 import { Container, Row, Col, CardColumns } from "react-bootstrap";
+import { GetServerSideProps } from "next";
 
 import Metadata from "../../components/Metadata";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import Jumbotron from "../../components/Jumbotron";
 
-import ProjectCard from "../../components/projects/ProjectCard";
+import ProjectCard, {
+  ProjectProps,
+} from "../../components/projects/ProjectCard";
+import styles from "../../styles/etc.module.scss";
 
 const AdminContent = () => {
+  const { data: session } = useSession();
   const [projects, setProjects] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
+    if (!session) router.push("/unauthorized");
     (async () => {
-      let req = await fetch("/api/projects");
-      let data = await req.json();
+      const req = await fetch("/api/projects");
+      const data = await req.json();
 
       setProjects(data);
     })();
-  }, []);
+  }, [router, session]);
+
+  if (!session) return <div>Loading...</div>;
 
   return (
     <Container fluid>
@@ -33,11 +44,14 @@ const AdminContent = () => {
             <Row>
               <Col>
                 <Jumbotron className={"text-center"}>
-                  <h2>My Projects</h2>
-                  <p className={"mt-4"}>
-                    As the time passes, this list will only grow. For now, here
-                    it is: my list of creations!
-                  </p>
+                  <h2>Project Control Panel</h2>
+                  <p className={"mt-4"}>Add, Edit & Delete Projects Here!</p>
+
+                  <Link href={"/admin/addProject"}>
+                    <a className={`mx-2 btn ${styles.linkButton}`}>
+                      New Project
+                    </a>
+                  </Link>
                 </Jumbotron>
               </Col>
             </Row>
@@ -45,26 +59,35 @@ const AdminContent = () => {
             <Row>
               <Col>
                 <CardColumns>
-                  {projects.map((p, ndx) => (
+                  {projects.map((p: ProjectProps["project"], ndx: number) => (
                     <ProjectCard project={p} key={ndx} isAdmin={true} />
                   ))}
                 </CardColumns>
               </Col>
             </Row>
           </Container>
-
-          <Footer />
         </Col>
       </Row>
     </Container>
   );
 };
 
-const AdminPage = () => {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await getSession(ctx);
+
+  return {
+    props: {
+      session,
+    },
+  };
+};
+
+const AdminPage = ({ session }) => {
   return (
     <>
       <Metadata title={"Admin Home"} />
       <AdminContent />
+      <Footer />
     </>
   );
 };
