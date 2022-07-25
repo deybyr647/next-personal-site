@@ -26,7 +26,7 @@ const Navigation = () => {
         <Navbar.Brand className={"mx-0 p-0 my-3"}>
           <Link href={"/"}>
             <a>
-              <Image src={logo} alt={"Logo"} />
+              <Image alt={"Logo"} src={logo} className={"img img-fluid"} width={400}/>
             </a>
           </Link>
         </Navbar.Brand>
